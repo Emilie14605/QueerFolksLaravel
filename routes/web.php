@@ -9,6 +9,7 @@ use App\Http\Controllers\AproposController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ParametersController;
 
 /*
@@ -44,5 +45,7 @@ Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messa
 Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
 Route::get('/profile', [ProfileController::class, 'seeProfile'])->name('profile');
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
+Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');
+
 
 require __DIR__.'/auth.php';

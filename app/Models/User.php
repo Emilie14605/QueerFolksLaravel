@@ -21,6 +21,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'firstname',
+        'surname',
+        'age',
+        'picture',
+        'descripiton',
+        'description',
+        'gender',
+        'sexualorientation',
+        'romanticorientation',
+        'lookingfor',
     ];
 
     /**

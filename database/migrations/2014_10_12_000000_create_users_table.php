@@ -13,10 +13,20 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name', 20);
+            $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 250);
+            $table->string('firstname', 20)->default('');
+            $table->string('surname', 20)->default('');
+            $table->integer('age');
+            $table->string('picture')->default('');
+            $table->string('description', 250)->default('');
+            $table->enum('gender', ['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])->default('Genderqueer');
+            $table->enum('sexualorientation', ['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])->default('Bisexuelle');
+            $table->enum('romanticorientation', ['Homoromantique', 'Biromantique', 'Panromantique', 'Demi-romantique', 'Aromantique', 'Heteroromantique',])->default('Biromantique');
+            $table->enum('lookingfor', ['Relation Amicale', 'Relation Amoureuse', 'Relation Sexuelle'])->default('Relation Amicale');
+            $table->boolean('isAdmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

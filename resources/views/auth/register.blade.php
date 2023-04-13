@@ -1,10 +1,10 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Nom')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
@@ -18,12 +18,9 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Mot de passe')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -32,11 +29,99 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <!-- Firstname -->
+        <div>
+            <x-input-label for="firstname" :value="__('Prénom')" />
+            <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
+            <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
+        </div>
+
+        <!-- Surname -->
+        <div>
+            <x-input-label for="surname" :value="__('Pseudo')" />
+            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="surname" />
+            <x-input-error :messages="$errors->get('surname')" class="mt-2" />
+        </div>
+
+        <!-- Age -->
+        <div>
+            <x-input-label for="age" :value="__('Age')" />
+            <x-text-input id="age" class="block mt-1 w-full" type="text" name="age" :value="old('age')" required autofocus autocomplete="age" />
+            <x-input-error :messages="$errors->get('age')" class="mt-2" />
+        </div>
+
+        <!-- Picture -->
+        <div>
+            <x-input-label for="picture" :value="__('Photo de profil')" />
+            <input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')" required autofocus autocomplete="picture" />
+            <x-input-error :messages="$errors->get('picture')" class="mt-2" />
+        </div>
+
+        <!-- Description -->
+        <div>
+            <x-input-label for="description" :value="__('Description')" />
+            <textarea id="description" class="block mt-1 w-full" name="description" required autofocus autocomplete="description">{{ old('description') }}</textarea>
+            <x-input-error :messages="$errors->get('description')" class="mt-2" />
+        </div>
+
+
+        <!-- Gender -->
+        <div>
+            <x-input-label for="genre" :value="__('Genre')" />
+            <select id="genre" name="genre" class="block mt-1 w-full" required autofocus>
+                <option value="">Sélectionnez un genre</option>
+                <option value="Homme Cisgenre" {{ old('genre') === 'Homme Cisgenre' ? 'selected' : '' }}>Homme Cisgenre</option>
+                <option value="Femme Cisgenre" {{ old('genre') === 'Femme Cisgenre' ? 'selected' : '' }}>Femme Cisgenre</option>
+                <option value="Homme Transgenre" {{ old('genre') === 'Homme Transgenre' ? 'selected' : '' }}>Homme Transgenre</option>
+                <option value="Femme Transgenre" {{ old('genre') === 'Femme Transgenre' ? 'selected' : '' }}>Femme Transgenre</option>
+                <option value="Genderfluid" {{ old('genre') === 'Genderfluid' ? 'selected' : '' }}>Genderfluid</option>
+                <option value="Genderqueer" {{ old('genre') === 'Genderqueer' ? 'selected' : '' }}>Genderqueer</option>
+                <option value="Agenre" {{ old('genre') === 'Agenre' ? 'selected' : '' }}>Agenre</option>
+            </select>
+            <x-input-error :messages="$errors->get('genre')" class="mt-2" />
+        </div>
+
+
+        <!-- Sexual Orientation -->
+        <div>
+            <x-input-label for="orientations" :value="__('Orientation Sexuelle')" />
+            <select>
+                <option value="">Sélectionnez une orientation sexuelle</option>
+                <option value="Homosexuelle" {{ old('orientations') === 'Homosexuelle' ? 'selected' : '' }}>Homosexuelle</option>
+                <option value="Bisexuelle" {{ old('orientations') === 'Bisexuelle' ? 'selected' : '' }}>Bisexuelle</option>
+                <option value="Pansexuelle" {{ old('orientations') === 'Pansexuelle' ? 'selected' : '' }}>Pansexuelle</option>
+                <option value="Demi-sexuelle" {{ old('orientations') === 'Demi-sexuelle' ? 'selected' : '' }}>Demi-sexuelle</option>
+                <option value="Asexuelle" {{ old('orientations') === 'Asexuelle' ? 'selected' : '' }}>Asexuelle</option>
+                <option value="Heteroxuelle" {{ old('orientations') === 'Heteroxuelle' ? 'selected' : '' }}>Heteroxuelle</option>
+            </select>
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        </div>
+
+        <!-- Romantic Orientation -->
+        <div>
+            <x-input-label for="orientationr" :value="__('Orientation Romantique')" />
+            <select>
+                <option value="">Sélectionnez une orientation romantique</option>
+                <option value="Homoromantique" {{ old('orientationr') === 'Homoromantique' ? 'selected' : '' }}>Homoromantique</option>
+                <option value="Biromantique" {{ old('orientationr') === 'Biromantique' ? 'selected' : '' }}>Biromantique</option>
+                <option value="Panromantique" {{ old('orientationr') === 'Panromantique' ? 'selected' : '' }}>Panromantique</option>
+                <option value="Demi-romantique" {{ old('orientationr') === 'Demi-romantique' ? 'selected' : '' }}>Demi-romantique</option>
+                <option value="Aromantique" {{ old('orientationr') === 'Aromantique' ? 'selected' : '' }}>Aromantique</option>
+                <option value="Heteroromantique" {{ old('orientationr') === 'Heteroromantique' ? 'selected' : '' }}>Heteroromantique</option>
+            </select>
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        </div>
+
+        <!-- Looking For -->
+        <div>
+            <x-input-label for="name" :value="__('Recherche')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
