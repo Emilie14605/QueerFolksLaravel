@@ -72,56 +72,61 @@
 
         <!-- Gender -->
         <div>
-            <x-input-label for="genre" :value="__('Genre')" />
-            <select id="genre" name="genre" class="block mt-1 w-full" required autofocus>
+            <x-input-label for="gender" :value="__('Genre')" />
+            <select id="gender" name="gender" class="block mt-1 w-full" required autofocus>
                 <option value="">Sélectionnez un genre</option>
-                <option value="Homme Cisgenre" {{ old('genre') === 'Homme Cisgenre' ? 'selected' : '' }}>Homme Cisgenre</option>
-                <option value="Femme Cisgenre" {{ old('genre') === 'Femme Cisgenre' ? 'selected' : '' }}>Femme Cisgenre</option>
-                <option value="Homme Transgenre" {{ old('genre') === 'Homme Transgenre' ? 'selected' : '' }}>Homme Transgenre</option>
-                <option value="Femme Transgenre" {{ old('genre') === 'Femme Transgenre' ? 'selected' : '' }}>Femme Transgenre</option>
-                <option value="Genderfluid" {{ old('genre') === 'Genderfluid' ? 'selected' : '' }}>Genderfluid</option>
-                <option value="Genderqueer" {{ old('genre') === 'Genderqueer' ? 'selected' : '' }}>Genderqueer</option>
-                <option value="Agenre" {{ old('genre') === 'Agenre' ? 'selected' : '' }}>Agenre</option>
+                <option value="Homme Cisgenre" {{ old('gender') === 'Homme Cisgenre' ? 'selected' : '' }}>Homme Cisgenre</option>
+                <option value="Femme Cisgenre" {{ old('gender') === 'Femme Cisgenre' ? 'selected' : '' }}>Femme Cisgenre</option>
+                <option value="Homme Transgenre" {{ old('gender') === 'Homme Transgenre' ? 'selected' : '' }}>Homme Transgenre</option>
+                <option value="Femme Transgenre" {{ old('gender') === 'Femme Transgenre' ? 'selected' : '' }}>Femme Transgenre</option>
+                <option value="Genderfluid" {{ old('gender') === 'Genderfluid' ? 'selected' : '' }}>Genderfluid</option>
+                <option value="Genderqueer" {{ old('gender') === 'Genderqueer' ? 'selected' : '' }}>Genderqueer</option>
+                <option value="Agenre" {{ old('gender') === 'Agenre' ? 'selected' : '' }}>Agenre</option>
             </select>
-            <x-input-error :messages="$errors->get('genre')" class="mt-2" />
+            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
         </div>
 
 
         <!-- Sexual Orientation -->
         <div>
-            <x-input-label for="orientations" :value="__('Orientation Sexuelle')" />
-            <select>
+            <x-input-label for="sexualorientation" :value="__('Orientation Sexuelle')" />
+            <select id="sexualorientation" name="sexualorientation" class="block mt-1 w-full" required autofocus>
                 <option value="">Sélectionnez une orientation sexuelle</option>
-                <option value="Homosexuelle" {{ old('orientations') === 'Homosexuelle' ? 'selected' : '' }}>Homosexuelle</option>
-                <option value="Bisexuelle" {{ old('orientations') === 'Bisexuelle' ? 'selected' : '' }}>Bisexuelle</option>
-                <option value="Pansexuelle" {{ old('orientations') === 'Pansexuelle' ? 'selected' : '' }}>Pansexuelle</option>
-                <option value="Demi-sexuelle" {{ old('orientations') === 'Demi-sexuelle' ? 'selected' : '' }}>Demi-sexuelle</option>
-                <option value="Asexuelle" {{ old('orientations') === 'Asexuelle' ? 'selected' : '' }}>Asexuelle</option>
-                <option value="Heteroxuelle" {{ old('orientations') === 'Heteroxuelle' ? 'selected' : '' }}>Heteroxuelle</option>
+                <option value="Homosexuelle" {{ old('sexualorientation') === 'Homosexuelle' ? 'selected' : '' }}>Homosexuelle</option>
+                <option value="Bisexuelle" {{ old('sexualorientation') === 'Bisexuelle' ? 'selected' : '' }}>Bisexuelle</option>
+                <option value="Pansexuelle" {{ old('sexualorientation') === 'Pansexuelle' ? 'selected' : '' }}>Pansexuelle</option>
+                <option value="Demi-sexuelle" {{ old('sexualorientation') === 'Demi-sexuelle' ? 'selected' : '' }}>Demi-sexuelle</option>
+                <option value="Asexuelle" {{ old('sexualorientation') === 'Asexuelle' ? 'selected' : '' }}>Asexuelle</option>
+                <option value="Heteroxuelle" {{ old('sexualorientation') === 'Heteroxuelle' ? 'selected' : '' }}>Heteroxuelle</option>
             </select>
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-error :messages="$errors->get('sexualorientation')" class="mt-2" />
         </div>
 
         <!-- Romantic Orientation -->
         <div>
-            <x-input-label for="orientationr" :value="__('Orientation Romantique')" />
-            <select>
+            <x-input-label for="romanticorientation" :value="__('Orientation Romantique')" />
+            <select id="romanticorientation" name="romanticorientation" class="block mt-1 w-full" required autofocus>
                 <option value="">Sélectionnez une orientation romantique</option>
-                <option value="Homoromantique" {{ old('orientationr') === 'Homoromantique' ? 'selected' : '' }}>Homoromantique</option>
-                <option value="Biromantique" {{ old('orientationr') === 'Biromantique' ? 'selected' : '' }}>Biromantique</option>
-                <option value="Panromantique" {{ old('orientationr') === 'Panromantique' ? 'selected' : '' }}>Panromantique</option>
-                <option value="Demi-romantique" {{ old('orientationr') === 'Demi-romantique' ? 'selected' : '' }}>Demi-romantique</option>
-                <option value="Aromantique" {{ old('orientationr') === 'Aromantique' ? 'selected' : '' }}>Aromantique</option>
-                <option value="Heteroromantique" {{ old('orientationr') === 'Heteroromantique' ? 'selected' : '' }}>Heteroromantique</option>
+                <option value="Homoromantique" {{ old('romanticorientation') === 'Homoromantique' ? 'selected' : '' }}>Homoromantique</option>
+                <option value="Biromantique" {{ old('romanticorientation') === 'Biromantique' ? 'selected' : '' }}>Biromantique</option>
+                <option value="Panromantique" {{ old('romanticorientation') === 'Panromantique' ? 'selected' : '' }}>Panromantique</option>
+                <option value="Demi-romantique" {{ old('romanticorientation') === 'Demi-romantique' ? 'selected' : '' }}>Demi-romantique</option>
+                <option value="Aromantique" {{ old('romanticorientation') === 'Aromantique' ? 'selected' : '' }}>Aromantique</option>
+                <option value="Heteroromantique" {{ old('romanticorientation') === 'Heteroromantique' ? 'selected' : '' }}>Heteroromantique</option>
             </select>
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-error :messages="$errors->get('romanticorientation')" class="mt-2" />
         </div>
 
         <!-- Looking For -->
         <div>
-            <x-input-label for="name" :value="__('Recherche')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-label for="lookingfor" :value="__('Je recherche')" />
+            <select id="lookingfor" name="lookingfor" class="block mt-1 w-full" required autofocus>
+                <option value="">Sélectionnez une orientation romantique</option>
+                <option value="Relation Amicale" {{ old('lookingfor') === 'Relation Amicale' ? 'selected' : '' }}>Relation Amicale</option>
+                <option value="Relation Romantique" {{ old('lookingfor') === 'Relation Romantique' ? 'selected' : '' }}>Relation Romantique</option>
+                <option value="Relation Sexuelle" {{ old('lookingfor') === 'Relation Sexuelle' ? 'selected' : '' }}>Relation Sexuelle</option>
+            </select>
+            <x-input-error :messages="$errors->get('lookingfor')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">

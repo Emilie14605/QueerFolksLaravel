@@ -16,6 +16,10 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+    public function __construct()
+    {
+        
+    }
     /**
      * Display the registration view.
      */
@@ -31,15 +35,16 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'firstname' => ['string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:20'],
-            'age' => ['numeric', 'min:18'],
-            'picture' => ['string', 'max:255', 'image'],
-            'description' => ['string', 'max:255'],
+            'age' => ['required', 'numeric', 'min:18'],
+            'picture' => ['required', 'image', 'max:255'],
+            'description' => ['required','string', 'max:255'],
             'gender' => ['required', Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
             'sexualorientation' => ['required', Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
             'romanticorientation' => ['required', Rule::in(['Homorantique', 'Biromantique', 'Panromantique', 'Demi-Romantique', 'Aromantique', 'Heteroromantique'])],

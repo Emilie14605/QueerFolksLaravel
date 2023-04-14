@@ -28,10 +28,17 @@
         <img src="../icones/compte.svg" alt="Compte" class="icone-compte">
     </header>
     <a href="front/pages/login.php">Click</a>
-    <div class="container messageaccueil">
-        <h1>Queer&Folks</h1>
-        <p>Bienvenue sur Queer&folks, un site de rencontre spécialement fait pour les membres de la communauté LGBTQUIA+, ici vous pourrez trouver des personnes recherchant la même chose que vous, que ça soit une rencontre d'un soir, plus longue ou simplement une amitié</p>
-        <p>Pour accéder au site, vous pouvez vous créer un compte <a href="login.php">ici</a></p>
+    <div class="param">
+        <form action="" method="post" enctype="multipart/form-data">
+        @csrf
+        
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+        <form action="{{ route('profile.destroy') }}" method="post">
+        @method('DELETE')
+        @csrf
+        <button type="submit">Supprimer le Compte</button>
+        </form>
     </div>
     <footer>
         <ul>
