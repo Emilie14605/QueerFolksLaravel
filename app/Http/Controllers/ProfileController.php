@@ -15,6 +15,12 @@ class ProfileController extends Controller
     {
         return view('profile');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('home');
+    }
     /**
      * Display the user's profile form.
      */
@@ -59,6 +65,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('home');
     }
 }

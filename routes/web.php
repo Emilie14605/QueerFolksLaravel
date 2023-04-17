@@ -46,6 +46,7 @@ Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name(
 Route::get('/profile', [ProfileController::class, 'seeProfile'])->name('profile');
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');
+Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 
 require __DIR__.'/auth.php';
