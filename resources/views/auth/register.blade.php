@@ -121,10 +121,10 @@
         <div>
             <x-input-label for="lookingfor" :value="__('Je recherche')" />
             <select id="lookingfor" name="lookingfor" class="block mt-1 w-full" required autofocus>
-                <option value="">Sélectionnez une orientation romantique</option>
-                <option value="Relation Amicale" {{ old('lookingfor') === 'Relation Amicale' ? 'selected' : '' }}>Relation Amicale</option>
-                <option value="Relation Romantique" {{ old('lookingfor') === 'Relation Romantique' ? 'selected' : '' }}>Relation Romantique</option>
-                <option value="Relation Sexuelle" {{ old('lookingfor') === 'Relation Sexuelle' ? 'selected' : '' }}>Relation Sexuelle</option>
+                    <option value="">Sélectionnez une orientation romantique</option>
+                    <option value="Relation Amicale" {{ old('lookingfor') === 'Relation Amicale' ? 'selected' : '' }}>Relation Amicale</option>
+                    <option value="Relation Romantique" {{ old('lookingfor') === 'Relation Romantique' ? 'selected' : '' }}>Relation Romantique</option>
+                    <option value="Relation Sexuelle" {{ old('lookingfor') === 'Relation Sexuelle' ? 'selected' : '' }}>Relation Sexuelle</option>
             </select>
             <x-input-error :messages="$errors->get('lookingfor')" class="mt-2" />
         </div>
