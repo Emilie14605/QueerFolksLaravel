@@ -13,7 +13,11 @@ class ProfileController extends Controller
 {
     public function seeProfile()
     {
-        return view('profile');
+        if (Auth::guest()) {
+            return view('index');
+        } else {
+            return view('profile');
+        }
     }
 
     public function logout()

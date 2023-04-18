@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
     //
     public function seeContact()
     {
-        return view('contact');
+        if (Auth::guest()) {
+            return view('index');
+        } else {
+            return view('contact');
+        }
     }
 }

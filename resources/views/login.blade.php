@@ -1,6 +1,8 @@
 @extends('layouthf')
 
 @section('content')
+@vite(['resources/css/style.css', 'resources/js/app.js'])
+
     <div class="container-form container">
         <form action="" method="post" name="form-login" class="form-login">
             <label for="loginemail">Email :</label>

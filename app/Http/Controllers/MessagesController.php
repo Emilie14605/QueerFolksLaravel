@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 {
     //
     public function seeMessages()
     {
-        return view('messages');
+        if (Auth::guest()) {
+            return view('index');
+        } else {
+            return view('messages');
+        }
     }
 }

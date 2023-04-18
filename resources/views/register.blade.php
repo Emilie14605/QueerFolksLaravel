@@ -1,6 +1,8 @@
 @extendss('layouthf')
 
 @section('content')
+@vite(['resources/css/style.css', 'resources/js/app.js'])
+
     <form action="" method="post" name="form-register" class="form-register">
         <label for="registername">Nom :</label>
         <input type="text" name="registername" id="registernname">
