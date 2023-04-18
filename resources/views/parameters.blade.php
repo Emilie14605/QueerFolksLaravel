@@ -3,8 +3,9 @@
 @section('content')
 <a href="{{ route('login') }}">Click</a>
 <div class="param">
-    <form action="" method="post" enctype="multipart/form-data">
-        @csrf
+    <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data" name="updateform">
+    @method('PATCH')    
+    @csrf
         <label for="name">Nom :</label>
         <input type="text" name="name" id="name">
         <label for="email">Email :</label>

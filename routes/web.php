@@ -23,7 +23,7 @@ use App\Http\Controllers\ParametersController;
 |
 */
 
-Route::get('/', function () {return view('home');});
+Route::get('/', function () {return view('index');});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,12 +36,13 @@ Route::middleware('auth')->group(function () {
 });
 
 // Routes pour accéder aux différentes pages
-Route::get('/home', [HomeController::class, 'seeHome'])->name('home');
+Route::get('/home', [HomeController::class, 'seeHome'])->name('index');
 Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos');
 Route::get('/blogs', [BlogsController::class, 'seeBlogs'])->name('blogs');
 Route::get('/contact', [ContactController::class, 'seeContact'])->name('contact');
 Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
 Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');
+// Page Paramètres
 Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
 Route::get('/profile', [ProfileController::class, 'seeProfile'])->name('profile');
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');

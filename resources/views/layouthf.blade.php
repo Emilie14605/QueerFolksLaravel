@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav class="menu-nav">
-            <a href="{{ route('home') }}">Accueil</a>
+            <a href="{{ route('index') }}">Accueil</a>
             <a href="{{ route('profile') }}">Profil</a>
             <a href="{{ route('blogs') }}">Blogs</a>
             <a href="{{ route('messages') }}">Messages</a>
