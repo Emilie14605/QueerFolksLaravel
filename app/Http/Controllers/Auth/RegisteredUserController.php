@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
             'gender' => ['required', Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
             'sexualorientation' => ['required', Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
             'romanticorientation' => ['required', Rule::in(['Homorantique', 'Biromantique', 'Panromantique', 'Demi-Romantique', 'Aromantique', 'Heteroromantique'])],
-            'lookingfor' => ['required', Rule::in(['Relation Amicale', 'Relation Amoureuse', 'Relation Sexuelle'])],
+            'lookingfor' => ['required', Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
         ]);
 
         $user = User::create([

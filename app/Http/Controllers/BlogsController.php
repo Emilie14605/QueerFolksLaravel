@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogs;
 use Illuminate\Http\Request;
 
 class BlogsController extends Controller
@@ -9,6 +10,8 @@ class BlogsController extends Controller
     //
     public function seeBlogs()
     {
-        return view('blogs');
+        $blogs = Blogs::orderBy('created_at', 'DESC')->get();
+        return view('blogs')->with('blogs',$blogs);
     }
+
 }
