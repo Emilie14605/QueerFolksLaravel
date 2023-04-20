@@ -13,8 +13,12 @@ class ProfileController extends Controller
 {
     public function seeProfile()
     {
-        return view('profile');
-    }
+        if(Auth::guest())
+        {
+            return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
+        } else {
+            return view('profile');
+        }    }
 
     public function logout()
     {
