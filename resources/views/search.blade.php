@@ -1,6 +1,7 @@
 @extends('layouthf')
 
 @section('content')
+@vite(['resources/css/style.css', 'resources/js/app.js'])
     <a href="{{ route('login') }}">Click</a>
     <div class="container messageaccueil">
         <h1>Queer&Folks</h1>

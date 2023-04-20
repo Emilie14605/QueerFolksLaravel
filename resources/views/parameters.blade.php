@@ -1,6 +1,8 @@
 @extends('layouthf')
 
 @section('content')
+@vite(['resources/css/style.css', 'resources/js/app.js'])
+
 <a href="{{ route('login') }}">Click</a>
 <div class="param">
     <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data" name="updateform">

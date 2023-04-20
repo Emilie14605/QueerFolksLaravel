@@ -1,8 +1,9 @@
 @extends('layouthf')
 
 @section('content')
+@vite(['resources/css/style.css', 'resources/js/app.js'])
 
-<form action="" method="post" name="blogs-form">
+<form action="{{ route('blogs.ajout') }}" method="post" name="blogs-form">
     @method('POST')
     @csrf
     <label for="title">Titre</label>

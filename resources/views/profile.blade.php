@@ -1,6 +1,8 @@
 @extends('layouthf')
 
 @section('content')
+@vite(['resources/css/style.css', 'resources/js/app.js'])
+
     <section>
         <article>
             <img src="" alt="Photo de profil">

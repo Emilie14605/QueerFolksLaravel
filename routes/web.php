@@ -41,8 +41,8 @@ Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos'
 // Partie Blog
 Route::get('/blogs', [BlogsController::class, 'seeBlogs'])->name('blogs');
 Route::get('/blogs/{id}', [BlogsController::class, 'details'])->name('blogsdetails');
-Route::get('/blogs/ajout', [BlogsController::class, 'seeBlogsForm'])->name('blogsajout');
-Route::post('/blogs/ajout', [BlogsController::class, 'store'])->name('blogs.ajout');
+Route::get('/blogs/ajout', [BlogsController::class, 'seeBlogsForm'])->name('blogsajoutform');
+Route::post('/blogs/ajoute', [BlogsController::class, 'store'])->name('blogs.ajout');
 Route::delete('/blogs/{id}', [BlogController::class, 'supprimerBlog']);
 
 Route::get('/contact', [ContactController::class, 'seeContact'])->name('contact');
