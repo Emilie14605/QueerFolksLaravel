@@ -13,6 +13,7 @@
 
 <body>
     <header>
+        <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone-burger">
         <nav class="menu-nav">
             <a href="{{ route('index') }}">Accueil</a>
             <a href="{{ route('profile') }}">Profil</a>
@@ -22,8 +23,8 @@
             <a href="{{ route('parameters') }}">Paramètres</a>
             <a href="{{ route('contact') }}">Nous contacter</a>
         </nav>
-        <img src="{{ asset('images/logo.svg') }}" alt="Logo">
-        <img src="front/icones/compte.svg" alt="Compte" class="icone-compte">
+        <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone-logo">
+        <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone-user">
     </header>
     @yield('content')
     <footer>

@@ -1,0 +1,41 @@
+header{
+    position: relative;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-areas:    "iconeburger logo user"
+                            "menunav menunav menunav"
+                        ;
+    /* background: white; */
+}
+
+/* .check-menu{grid-area: checkmenu;} */
+.icone-burger{grid-area: iconeburger;}
+.menu-nav{grid-area: menunav;}
+.icone-logo{grid-area: logo;}
+.icone-user{grid-area: user;}
+
+.icone-user{
+    height: auto;
+    max-width: 20px;
+}
+
+.icone-burger{
+    height: auto;
+    max-width: 20px;
+}
+
+/* Partie footer */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+footer ul li a {
+    text-decoration: none;
+    color: black;
+}
+footer ul  li {
+    list-style-type: none;
+}
