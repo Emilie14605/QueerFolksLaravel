@@ -2,28 +2,31 @@
 
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
+@vite(['resources/css/parameters.css', 'resources/js/app.js'])
 
 <a href="{{ route('login') }}">Click</a>
 <div class="param">
-    <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data" name="updateform">
-    @method('PATCH')    
+    <form action="{{ route('profileupdate') }}" method="post" enctype="multipart/form-data" name="updateform">
+    @method('PUT')
     @csrf
         <label for="name">Nom :</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" value="{{ old('name') }}">
         <label for="email">Email :</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" value="{{ old('email') }}">
         <label for="password">Mot de passe :</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" value="{{ old('password') }}">
         <label for="passwordr">Répéter votre mot de passe</label>
-        <input type="password" name="passwordr" id="passwordr">
+        <input type="password" name="passwordr" id="passwordr" value="{{ old('passwordr') }}">
         <label for="firstname">Prénom</label>
-        <input type="text" name="firstname" id="firstname">
+        <input type="text" name="firstname" id="firstname" value="{{ old('firstname') }}">
         <label for="surname">Pseudo</label>
-        <input type="text" name="surname" id="surname">
+        <input type="text" name="surname" id="surname" value="{{ old('surname') }}">
         <label for="age">Age</label>
-        <input type="text" name="age" id="age">
+        <input type="number" name="age" id="age" value="{{ old('age') }}">
         <label for="picture">Photo de profil</label>
-        <input type="file" name="picture" id="picture">
+        <input type="file" name="picture" id="picture" value="{{ old('picture') }}">
+        <label for="description"></label>
+        <textarea name="description" id="description"></textarea>
         <select name="gender" id="gender">
             <option value="">Sélectionnez un genre</option>
             <option value="Homme Cisgenre" {{ old('gender') === 'Homme Cisgenre' ? 'selected' : '' }}>Homme Cisgenre</option>
@@ -60,18 +63,18 @@
         </select>
         <button type="reset" name="reset">Annuler</button>
         <a href="{{ route('register') }}">Déjà membre ? Connectez vous</a>
-        <button type="submit">Enregistrer les modifications</button>
+        <button type="submit" name="submit">Enregistrer les modifications</button>
     </form>
     <form action="{{ route('profile.destroy') }}" method="post">
         @method('DELETE')
         @csrf
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+        <!-- <div class="form-group">
+            <label for="passwordd">Mot de passe</label>
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="passwordd" name="passwordd" required>
             @error('password')
             <div class="invalid">{{ $message }}</div>
             @enderror
-        </div>
+        </div> -->
         <button type="submit">Supprimer le Compte</button>
     </form>
 </div>

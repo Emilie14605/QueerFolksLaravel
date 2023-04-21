@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -38,10 +40,33 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request, $id): RedirectResponse
     {
-        $user = $request->user();
-        $user->fill($request->validated());
+        // $user = $request->user();
+
+        $user = User::findOrFail($id);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->firstname = $request->input('firstname');
+        $user->surname = $request->input('surname');
+        $user->age = $request->input('age');
+        $user->picture = $request->input('picture');
+        $user->description = $request->input('description');
+        $user->gender = $request->input('gender');
+        $user->sexualorientation = $request->input('sexualorientation');
+        $user->romanticorientation = $request->input('romanticorientation');
+        $user->lookingfor = $request->input('lookingfor');
+
+        if ($request->hasFile('picture')) {
+            $path = $request->file('picture')->storePublicly('public/images');
+            $user->picture = asset(str_replace('public', 'storage', $path));
+        }        
+
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->input('password'));
+        }
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
@@ -49,7 +74,7 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return redirect()->route('profile.edit')->with('status', 'profile-updated');
+        return redirect()->route('parameters')->with('status', 'profile-updated');
     }
 
 

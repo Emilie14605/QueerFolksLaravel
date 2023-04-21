@@ -30,7 +30,7 @@ class BlogsController extends Controller
 
     public function details($id)
     {
-        $blog = Blogs::find($id);
+        $blog = Blogs::find($id)->get();
         return view('blogsdetails')->with('blog', $blog);
     }
 

@@ -26,7 +26,6 @@ class User extends Authenticatable
         'age',
         'picture',
         'descripiton',
-        'description',
         'gender',
         'sexualorientation',
         'romanticorientation',

@@ -51,7 +51,7 @@
         <!-- Age -->
         <div>
             <x-input-label for="age" :value="__('Age')" />
-            <x-text-input id="age" class="block mt-1 w-full" type="text" name="age" :value="old('age')" required autofocus autocomplete="age" />
+            <x-text-input id="age" class="block mt-1 w-full" type="number" name="age" :value="old('age')" required autofocus autocomplete="age" />
             <x-input-error :messages="$errors->get('age')" class="mt-2" />
         </div>
 
@@ -97,7 +97,7 @@
                 <option value="Pansexuelle" {{ old('sexualorientation') === 'Pansexuelle' ? 'selected' : '' }}>Pansexuelle</option>
                 <option value="Demi-sexuelle" {{ old('sexualorientation') === 'Demi-sexuelle' ? 'selected' : '' }}>Demi-sexuelle</option>
                 <option value="Asexuelle" {{ old('sexualorientation') === 'Asexuelle' ? 'selected' : '' }}>Asexuelle</option>
-                <option value="Heteroxuelle" {{ old('sexualorientation') === 'Heteroxuelle' ? 'selected' : '' }}>Heteroxuelle</option>
+                <option value="Heterosexuelle" {{ old('sexualorientation') === 'Heterosexuelle' ? 'selected' : '' }}>Heterosexuelle</option>
             </select>
             <x-input-error :messages="$errors->get('sexualorientation')" class="mt-2" />
         </div>

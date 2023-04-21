@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotifyController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AproposController;
 use App\Http\Controllers\ContactController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ParametersController;
+use App\Http\Controllers\FriendRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profileupdate');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
@@ -50,7 +52,14 @@ Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
 Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');
 // Page Paramètres
 Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
+
+// Partie Profil
 Route::get('/profile', [ProfileController::class, 'seeProfile'])->name('profile');
+Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRequest');
+
+// Partie Notiications
+Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
+
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');
 Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');

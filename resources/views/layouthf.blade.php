@@ -23,16 +23,16 @@
             <a href="{{ route('parameters') }}">Paramètres</a>
             <a href="{{ route('contact') }}">Nous contacter</a>
         </nav>
-        <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone-logo">
+        <a href="{{ route('index') }}"><img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone-logo"></a>
         <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone-user">
     </header>
     @yield('content')
     <footer>
         <ul>
             <li><a href="https://www.patreon.com/user?u=91373358">Nous soutenir</a></li>
-            <li><a href="front/pages/contact.php">Contact</a></li>
-            <li><a href="">Mention légales</a></li>
-            <li><a href="front/pages/apropos.php">A propos</a></li>
+            <li><a href="{{ route('contact') }}">Contact</a></li>
+            <li><a href="{{ route('contact') }}">Mention légales</a></li>
+            <li><a href="{{ route('apropos') }}">A propos</a></li>
         </ul>
     </footer>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
