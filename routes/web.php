@@ -62,9 +62,11 @@ Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name(
 Route::get('/profile', [ProfileController::class, 'seeProfile'])->name('profile');
 Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRequest');
 
-// Partie Notiications
+// Partie Notifications
 Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
 Route::get('/notifications/{id}', [NotifyController::class, 'details'])->name('notifydetails');
+Route::post('/notificationsadd', [NotifyController::class, 'add'])->name('acceptfriend');
+Route::delete('/notificationsdel', [NotifyController::class, 'del'])->name('rejectfriend');
 
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');

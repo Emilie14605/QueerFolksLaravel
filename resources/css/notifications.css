@@ -1,9 +1,15 @@
 .container{
     display: grid;
-    /* place-items: center; */
-    /* justify-content: space-around; */
+    place-items: center;
+}
+
+.users{
+    border: 2px black solid;
+    border-radius: 10px;
+    width: max-content;
 }
 
 .users img{
-    
+    height: auto;
+    max-width: 20px;
 }

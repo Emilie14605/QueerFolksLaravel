@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Models\FriendRequest;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class NotifyController extends Controller
 {
@@ -22,5 +24,17 @@ class NotifyController extends Controller
             $users = User::whereIn('id', $receiverId)->get();
             return view('notifications')->with('users', $users);
         }
+    }
+
+    public function add()
+    {
+        ;
+    }
+
+    public function del($id)
+    {
+        $del = FriendRequest::findOrFail($id);
+        $del->delete();
+        return redirect('notifications');
     }
 }
