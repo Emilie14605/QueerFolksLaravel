@@ -22,6 +22,7 @@
             <a href="{{ route('search') }}">Recherche</a>
             <a href="{{ route('parameters') }}">Paramètres</a>
             <a href="{{ route('contact') }}">Nous contacter</a>
+            <a href="{{ route('notify') }}">Notifications</a>
         </nav>
         <a href="{{ route('index') }}"><img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone-logo"></a>
         <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone-user">

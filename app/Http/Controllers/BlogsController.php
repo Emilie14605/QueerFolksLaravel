@@ -25,12 +25,18 @@ class BlogsController extends Controller
 
     public function seeBlogsForm()
     {
-        return view('blogsajout');
+        if(Auth::guest())
+        {
+            return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
+        } else {
+            return view('blogsajout');
+        }
     }
 
     public function details($id)
     {
-        $blog = Blogs::find($id)->get();
+        // $blog = Blogs::findOrFail($id)->get();
+        $blog = Blogs::orderBy('created_at', 'DESC')->get();
         return view('blogsdetails')->with('blog', $blog);
     }
 

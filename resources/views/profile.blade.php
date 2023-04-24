@@ -2,11 +2,10 @@
 
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
-
 <section>
     <article>
         <img src="" alt="Photo de profil">
-        <h1>Nom Prénom</h1>
+        <h1>Nom Prénom<h1>
     </article>
 </section>
 <a href="{{ route('notify') }}">Lien vers la page de notifications</a>

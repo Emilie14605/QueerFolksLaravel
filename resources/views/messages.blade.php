@@ -1,6 +1,6 @@
 @extends('layouthf')
 
-@sectioon('content')
+@section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
 
     <a href="{{ route('login') }}">Click</a>
@@ -10,6 +10,17 @@
         <p>Pour accéder au site, vous pouvez vous créer un compte <a href="{{ route('login') }}">ici</a></p>
     </div>
     <div class="container">
-        
+        <form action="{{ route('messagesajout') }}" method="POST" name="messages-form">
+        @method('POST')
+        @csrf
+            <select name="receiver" id="receiver">
+                @foreach($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->surname }}</option>
+                @endforeach
+            </select>
+            <label for="message"></label>
+            <textarea name="message" id="message" cols="60" rows="10"></textarea>
+            <button type="submit" name="submit">Envoyer</button>
+        </form>
     </div>
 @endsection

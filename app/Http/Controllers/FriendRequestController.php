@@ -20,8 +20,6 @@ class FriendRequestController extends Controller
             'status' => 'en attente'
         ]);
 
-        // Do something with the friend request (e.g. send a notification)
-
         return redirect()->back();
     }
 }

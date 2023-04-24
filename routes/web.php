@@ -40,16 +40,21 @@ Route::middleware('auth')->group(function () {
 // Routes pour accéder aux différentes pages
 Route::get('/home', [HomeController::class, 'seeHome'])->name('index');
 Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos');
+
 // Partie Blog
 Route::get('/blogs', [BlogsController::class, 'seeBlogs'])->name('blogs');
 Route::get('/blogs/{id}', [BlogsController::class, 'details'])->name('blogsdetails');
-Route::get('/blogs/ajout', [BlogsController::class, 'seeBlogsForm'])->name('blogsajoutform');
+Route::get('/blogsajout', [BlogsController::class, 'seeBlogsForm'])->name('blogsajoutform');
 Route::post('/blogs/ajoute', [BlogsController::class, 'store'])->name('blogs.ajout');
-Route::delete('/blogs/{id}', [BlogController::class, 'supprimerBlog']);
+Route::delete('/blogs/{id}', [BlogsController::class, 'supprimerBlog']);
 
 Route::get('/contact', [ContactController::class, 'seeContact'])->name('contact');
 Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
+
+// Partie Messages
 Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');
+Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messagesajout');
+
 // Page Paramètres
 Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
 
@@ -59,6 +64,7 @@ Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRe
 
 // Partie Notiications
 Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
+Route::get('/notifications/{id}', [NotifyController::class, 'details'])->name('notifydetails');
 
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');
