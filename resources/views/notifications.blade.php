@@ -7,14 +7,26 @@
 <h1>Bienvenue sur la page des notifications</h1>
 
 <div class="container">
-    @foreach($users as $user)
+    @foreach($notifs as $notif)
     <div class="users">
-        <p class="demande">Vous avez une demande d'ami de la part de : 
-            <a href="{{ route('profile') }}">{{ $user->surname }}</a>
-            <a href="{{ route('acceptfriend') }}"><img src="{{ asset('images/accept.svg') }}" alt="" class="accept"></a>
-            <a href="{{ route('rejectfriend') }}"><img src="{{ asset('images/reject.svg') }}" alt="" class="reject"></a>
+        <p class="demande">Vous avez une demande d'ami de la part de :
+            <a href="{{ route('profile.show', ['id' => $senders[$notif->sender_id]->id]) }}">{{ $senders[$notif->sender_id]->surname }}</a>
+            <a href=""><img src="{{ asset('images/accept.svg') }}" alt="" class="accept"></a>
+        @if($notif->status === 'en attente')
+        <form action="{{ route('notifyadd', ['id' => $notif->id]) }}" method="post">
+            @method('PUT')
+            @csrf
+            <input type="hidden" name="status" value="acceptée">
+            <button type="submit" name="submit">✅</button>
+        </form>
+        <form action="{{ route('notifydel', ['id' => $notif->id]) }}" method="post">
+            @method('DELETE')
+            @csrf
+            <button type="submit" name="submit">❌</button>
+        </form>
+        @endif
         </p>
-        <a href="{{ route('notifydetails', ['id' => $user->id]) }}">Détails</a>
+        <a href="{{ route('notifydetails', ['id' => $notif->id]) }}">Détails</a>
     </div>
     @endforeach
 </div>

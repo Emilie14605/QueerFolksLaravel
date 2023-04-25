@@ -16,7 +16,9 @@
         <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone-burger">
         <nav class="menu-nav">
             <a href="{{ route('index') }}">Accueil</a>
-            <a href="{{ route('profile') }}">Profil</a>
+            @if(Auth::check())
+            <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a>
+            @endif
             <a href="{{ route('blogs') }}">Blogs</a>
             <a href="{{ route('messages') }}">Messages</a>
             <a href="{{ route('search') }}">Recherche</a>

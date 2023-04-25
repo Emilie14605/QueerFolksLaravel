@@ -33,13 +33,32 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profileupdate');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 // Routes pour accéder aux différentes pages
 Route::get('/home', [HomeController::class, 'seeHome'])->name('index');
 Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos');
+
+Route::post('/friend-request', [FriendRequestController::class, 'send'])->name('friendrequest.send');
+
+// Partie Profil
+Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
+Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRequest');
+
+// Page Paramètres
+Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
+
+// Partie Messages
+Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');
+Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messagesajout');
+
+// Partie Notifications
+Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
+Route::get('/notifications/{id}', [NotifyController::class, 'details'])->name('notifydetails');
+Route::delete('/notifications/{id}', [FriendRequestController::class, 'del'])->name('notifydel');
+Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name('notifyadd');
 
 // Partie Blog
 Route::get('/blogs', [BlogsController::class, 'seeBlogs'])->name('blogs');
@@ -50,23 +69,6 @@ Route::delete('/blogs/{id}', [BlogsController::class, 'supprimerBlog']);
 
 Route::get('/contact', [ContactController::class, 'seeContact'])->name('contact');
 Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
-
-// Partie Messages
-Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');
-Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messagesajout');
-
-// Page Paramètres
-Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
-
-// Partie Profil
-Route::get('/profile', [ProfileController::class, 'seeProfile'])->name('profile');
-Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRequest');
-
-// Partie Notifications
-Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
-Route::get('/notifications/{id}', [NotifyController::class, 'details'])->name('notifydetails');
-Route::post('/notificationsadd', [NotifyController::class, 'add'])->name('acceptfriend');
-Route::delete('/notificationsdel', [NotifyController::class, 'del'])->name('rejectfriend');
 
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');

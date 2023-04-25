@@ -13,15 +13,19 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function seeProfile()
+    // On affiche la page du profil avec toute les informations de l'utilisateurs concerné
+    public function show($id)
     {
         if(Auth::guest())
         {
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
-            return view('profile');
-        }    }
+            $user = User::find($id);
+            return view('profile')->with('user', $user);
+        }    
+    }
 
+    // On déconnecte l'utilisateur avec un simple Auth::logout et on le redirige vers la page d'accueil où il devra se reconnecter ou se recréer un compte
     public function logout()
     {
         Auth::logout();
@@ -42,8 +46,6 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request, $id): RedirectResponse
     {
-        // $user = $request->user();
-
         $user = User::findOrFail($id);
 
         $user->name = $request->input('name');

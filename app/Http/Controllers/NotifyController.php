@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 
 class NotifyController extends Controller
 {
-    // Fonction pour montrer les demandes d'ami
+    // Fonction pour montrer toutes les demandes d'ami concernant l'utilisateur
     public function show()
     {
         // On vérifie si l'utilisateur est connecté, sinon on le renvoie vers la page de connexion avec un message
@@ -19,22 +19,16 @@ class NotifyController extends Controller
             return redirect()->route('login')->with('status', "Vous devez vous connecter pour accéder à cette page");
         } else {
             // On récupère les demandes d'ami dans la table FriendRequest et on les ordonne par date de création du plus récent au plus ancien
-            $notifs = FriendRequest::orderBy('created_at', 'DESC')->get();
-            $receiverId = FriendRequest::pluck('receiver_id');
-            $users = User::whereIn('id', $receiverId)->get();
-            return view('notifications')->with('users', $users);
+            $notifs = FriendRequest::where('receiver_id', Auth::id())->orderBy('created_at', 'DESC')->get();
+            $senderIds = FriendRequest::pluck('sender_id');
+            $senders = User::whereIn('id', $senderIds)->get()->keyBy('id');
+
+            return view('notifications', ['notifs' => $notifs, 'senders' => $senders]);
         }
     }
 
-    public function add()
+    public function details()
     {
-        ;
-    }
-
-    public function del($id)
-    {
-        $del = FriendRequest::findOrFail($id);
-        $del->delete();
-        return redirect('notifications');
+        return view('notificationsdetails');
     }
 }

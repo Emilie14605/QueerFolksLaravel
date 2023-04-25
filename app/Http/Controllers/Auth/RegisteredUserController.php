@@ -16,10 +16,6 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    public function __construct()
-    {
-        
-    }
     /**
      * Display the registration view.
      */
