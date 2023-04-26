@@ -4,7 +4,7 @@
 @vite(['resources/css/style.css', 'resources/js/app.js'])
 
 @if($blog)
-    <div class="blogs">
+    <div class="blog">
         <p>{{$blog->title}}</p>
         <p>{{$blog->author}}</p>
         <p>{{$blog->content}}</p>

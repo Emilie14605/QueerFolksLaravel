@@ -53,6 +53,7 @@ Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name(
 // Partie Messages
 Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');
 Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messagesajout');
+Route::get('/messagesdetails/{id}', [MessagesController::class, 'details'])->name('messagesdetails');
 
 // Partie Notifications
 Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
@@ -62,7 +63,7 @@ Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name
 
 // Partie Blog
 Route::get('/blogs', [BlogsController::class, 'seeBlogs'])->name('blogs');
-Route::get('/blogs/{id}', [BlogsController::class, 'details'])->name('blogsdetails');
+Route::get('/blogsdetails/{id}', [BlogsController::class, 'details'])->name('blogsdetails');
 Route::get('/blogsajout', [BlogsController::class, 'seeBlogsForm'])->name('blogsajoutform');
 Route::post('/blogs/ajoute', [BlogsController::class, 'store'])->name('blogs.ajout');
 Route::delete('/blogs/{id}', [BlogsController::class, 'supprimerBlog']);

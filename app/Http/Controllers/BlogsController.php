@@ -35,10 +35,16 @@ class BlogsController extends Controller
 
     public function details($id)
     {
-        // $blog = Blogs::findOrFail($id)->get();
-        $blog = Blogs::orderBy('created_at', 'DESC')->get();
-        return view('blogsdetails')->with('blog', $blog);
+        if(Auth::guest())
+        {
+            return redirect()->route('login')->with('status', 'Vous devez vous connectez pour accéder à cette page');
+        } else {
+            $blog = Blogs::findOrFail($id);
+
+            return view('blogsdetails')->with('blog', $blog);
+        }
     }
+
 
     public function store(Request $request): RedirectResponse
     {

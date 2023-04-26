@@ -1,17 +1,15 @@
+/* Partie Header */
 header{
+    background-color: #71cdf4;
     position: relative;
     width: 100%;
     display: grid;
     align-items: center;
     grid-template-areas:    "iconeburger logo user"
-                            "menunav menunav menunav"
                         ;
-    /* background: white; */
 }
 
-/* .check-menu{grid-area: checkmenu;} */
 .icone-burger{grid-area: iconeburger;}
-.menu-nav{grid-area: menunav;}
 .icone-logo{grid-area: logo;}
 .icone-user{grid-area: user;}
 
@@ -25,8 +23,18 @@ header{
     max-width: 20px;
 }
 
-/* Partie footer */
+/* Partie Body */
+body{
+    background-color: #ffcb83;
+}
+
+.menu-nav{
+    display: none;
+}
+
+/* Partie Footer */
 footer {
+    background-color: #71cdf4;
     position: relative;
     bottom: 0;
     width: 100%;
