@@ -1,4 +1,4 @@
-@extendss('layouthf')
+@extends('layouthf')
 
 @section('content')
     <form action="" method="post" name="form-register" class="form-register">

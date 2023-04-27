@@ -2,6 +2,7 @@
 
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
+@vite(['resources/js/style.js'])
 
 <form action="{{ route('blogs.ajout') }}" method="post" name="blogs-form">
     @method('POST')

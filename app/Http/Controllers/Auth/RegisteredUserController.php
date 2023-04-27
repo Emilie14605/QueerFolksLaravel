@@ -31,7 +31,16 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        
+        /* Je viens de rajouter cette partie du code, c'est pour l'upload de l'image
+        if ($request->hasFile('picture')) {
+            $picture = $request->file('picture');
+            $fileName = time() . '_' . $picture->getClientOriginalName();
+            $picture->move(public_path('images'), $fileName);
+            $picturePath = '/images/' . $fileName;
+        }
+        */
+
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -39,8 +48,8 @@ class RegisteredUserController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:20'],
             'age' => ['required', 'numeric', 'min:18'],
-            'picture' => ['required', 'image', 'max:255'],
-            'description' => ['required','string', 'max:255'],
+            'picture' => ['image', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
             'gender' => ['required', Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
             'sexualorientation' => ['required', Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
             'romanticorientation' => ['required', Rule::in(['Homorantique', 'Biromantique', 'Panromantique', 'Demi-romantique', 'Aromantique', 'Heteroromantique'])],

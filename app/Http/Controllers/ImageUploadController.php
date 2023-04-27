@@ -3,28 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ImageUploadController extends Controller
 {
     //
-    public function upload(Request $request)
+
+    public function index()
+    {
+        return view('imageUpload');
+    }
+
+    public function store(Request $request)
     {
         $request->validate([
-            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $image = $request->file('picture');
+        $imageName = time().'.'.$request->image->extension();
 
-        $image_info = getimagesize($image->getPathname());
-        $mime_type = $image_info['mime'];
-        $allowed_mime_types = ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'];
-        if (!in_array($mime_type, $allowed_mime_types)) {
-            return back()->with('error', 'Le type MIME de l\'image est invalide.');
-        }
+        $request->image->move(public_path('images'), $imageName);
+
+        $user = Auth::user();
+        $user->picture = $imageName;
+        $user->save();
         
-        $imageName = time().'.'.$request->picture->extension();
-
-        $request->picture->move(public_path('images'), $imageName);
 
         return back()->with('success',"L'image a été enregistrée")->whith('image', $imageName);
     }

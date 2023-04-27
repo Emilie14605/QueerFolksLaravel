@@ -6,6 +6,8 @@
 <h1>{{ $user->name }} {{ $user->firstname }} </h1>
 <p>{{ $user->description }}</p>
 
+<span>{{ $user->picture }}</span>
+
 <h2>Sexualité :</h2>
 {{ $user->sexualorientation }}
 

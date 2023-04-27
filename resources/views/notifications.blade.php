@@ -3,6 +3,7 @@
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
 @vite(['resources/css/notifications.css'])
+@vite(['resources/js/style.js'])
 
 <h1>Bienvenue sur la page des notifications</h1>
 

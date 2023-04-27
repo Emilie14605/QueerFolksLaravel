@@ -23,12 +23,17 @@ class MessagesController extends Controller
             $senderIds = $friends->pluck('sender_id');
             $users = User::whereIn('id', $senderIds)->get();
 
-            // Cette partie sert à afficher seulement les messges dont l'tuilisateur est le/la destinataire
-            $messages = Messages::whereIn('messages_receiver_id', [Auth::id()])->get();
-            $senderId = $messages->pluck('messages_sender_id');
+            // Cette partie sert à afficher seulement les messges dont l'utilisateur est le/la destinataire
+            $messagesreceived = Messages::whereIn('messages_receiver_id', [Auth::id()])->get();
+            $senderId = $messagesreceived->pluck('messages_sender_id');
             $senders = User::whereIn('id', $senderId)->get();
 
-            return view('messages')->with('messages', $messages)->with('senders', $senders)->with('users', $users);
+            // Cette partie sert à afficher seulement les messages dont l'utilisateur est l'envoyeur.e
+            $messagessent = Messages::whereIn('messages_sender_id', [Auth::id()])->get();
+            $receiverId = $messagessent->pluck('messages_receiver_id');
+            $receivers = User::whereIn('id', $receiverId)->get();
+
+            return view('messages')->with('messages', $messagesreceived)->with('senders', $senders)->with('messagessent', $messagessent)->with('receivers', $receivers)->with('users', $users);
         }
     }
 
@@ -40,6 +45,7 @@ class MessagesController extends Controller
         } else {
             $message = Messages::findOrFail($id);
             $sender = User::findOrFail($message->messages_sender_id);
+            $receiver = User::findOrFail($message->messages_receiver_id);
 
             return view('messagesdetails')->with('message', $message)->with('sender', $sender);
         }

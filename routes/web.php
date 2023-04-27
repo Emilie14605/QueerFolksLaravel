@@ -13,6 +13,7 @@ use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ParametersController;
 use App\Http\Controllers\FriendRequestController;
+use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,13 +34,18 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profileupdate');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 // Routes pour accéder aux différentes pages
 Route::get('/home', [HomeController::class, 'seeHome'])->name('index');
 Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos');
+
+// Essai d'upload d'image
+Route::get('upload-image', [ImageUploadController::class, 'index']);
+Route::post('upload-image', [ImageUploadController::class, 'store'])->name('image.store');
+
 
 Route::post('/friend-request', [FriendRequestController::class, 'send'])->name('friendrequest.send');
 

@@ -2,6 +2,7 @@
 
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
+@vite(['resources/js/style.js'])
 
     <a href="{{ route('login') }}">Click</a>
     <div class="container messageaccueil">
@@ -11,6 +12,6 @@
     </div>
     <h2>Contact</h2>
     <p>Voici les informations pour me contacter</p>
-    <h2>Mentions légale</h2>
+    <h2>Mentions légales</h2>
     <p>Les mentions légales</p>
 @endsection

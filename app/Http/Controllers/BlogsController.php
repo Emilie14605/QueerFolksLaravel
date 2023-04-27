@@ -29,7 +29,11 @@ class BlogsController extends Controller
         {
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
-            return view('blogsajout');
+            if(Auth::user()->isAdmin){
+                return view('blogsajout');
+            } else {
+                return redirect()->back();
+            }
         }
     }
 

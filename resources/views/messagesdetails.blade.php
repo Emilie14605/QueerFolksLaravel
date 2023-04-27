@@ -2,6 +2,7 @@
 
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
+@vite(['resources/js/style.js'])
 
 @if($message)
 
@@ -10,8 +11,6 @@
         <p>Envoyeur.e : {{ $sender->surname }}</p>
         <p>{{ $message->content }}</p>
     </div>
-
-
 
 @endif
 

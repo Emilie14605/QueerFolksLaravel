@@ -1,35 +1,62 @@
 /* Partie Header */
-header{
+header {
     background-color: #71cdf4;
-    position: relative;
     width: 100%;
     display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 1fr;
     align-items: center;
-    grid-template-areas:    "iconeburger logo user"
-                        ;
 }
 
-.icone-burger{grid-area: iconeburger;}
-.icone-logo{grid-area: logo;}
-.icone-user{grid-area: user;}
-
-.icone-user{
-    height: auto;
-    max-width: 20px;
-}
-
-.icone-burger{
+.icone-user {
     height: auto;
     max-width: 20px;
 }
 
 /* Partie Body */
-body{
+body {
     background-color: #ffcb83;
 }
 
-.menu-nav{
+#burger {
+    height: auto;
+    max-width: 20px;
+    cursor: pointer;
+}
+
+#menu {
     display: none;
+    position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: #71cdf4;
+    padding: 10px;
+}
+
+#menu ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+}
+
+#menu li {
+    display: block;
+    /* width: 100%; */
+    text-align: center;
+    margin-bottom: 10px;
+}
+#menu a {
+    text-decoration: none;
+    background-color: rgb(213, 7, 4);
+    color: black;
+    border-width: 10px;
+    padding: 5px;
+    width: 100%;
 }
 
 /* Partie Footer */
@@ -40,10 +67,12 @@ footer {
     width: 100%;
     text-align: center;
 }
+
 footer ul li a {
     text-decoration: none;
     color: black;
 }
-footer ul  li {
+
+footer ul li {
     list-style-type: none;
 }

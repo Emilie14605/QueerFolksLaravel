@@ -12,22 +12,24 @@
 
 <body>
     <header>
-        <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone-burger" id="icone-burger" onclick="menu()">
-        <a href="{{ route('index') }}"><img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone-logo"></a>
+        <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone-burger" id="burger">
+        <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone-logo">
         <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone-user">
+        <nav class="menu-nav" id="menu">
+            <ul>
+                <li><a href="{{ route('index') }}">Accueil</a></li>
+                @if(Auth::check())
+                <li><a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a></li>
+                @endif
+                <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                <li><a href="{{ route('messages') }}">Messages</a></li>
+                <li><a href="{{ route('search') }}">Recherche</a></li>
+                <li><a href="{{ route('parameters') }}">Paramètres</a></li>
+                <li><a href="{{ route('contact') }}">Nous contacter</a></li>
+                <li><a href="{{ route('notify') }}">Notifications</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav class="menu-nav">
-        <a href="{{ route('index') }}">Accueil</a>
-        @if(Auth::check())
-        <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a>
-        @endif
-        <a href="{{ route('blogs') }}">Blogs</a>
-        <a href="{{ route('messages') }}">Messages</a>
-        <a href="{{ route('search') }}">Recherche</a>
-        <a href="{{ route('parameters') }}">Paramètres</a>
-        <a href="{{ route('contact') }}">Nous contacter</a>
-        <a href="{{ route('notify') }}">Notifications</a>
-    </nav>
     @yield('content')
     <footer>
         <ul>
@@ -37,7 +39,7 @@
             <li><a href="{{ route('apropos') }}">A propos</a></li>
         </ul>
     </footer>
-    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
