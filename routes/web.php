@@ -7,13 +7,13 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotifyController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AproposController;
+use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ParametersController;
 use App\Http\Controllers\FriendRequestController;
-use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,16 +42,14 @@ Route::middleware('auth')->group(function () {
 Route::get('/home', [HomeController::class, 'seeHome'])->name('index');
 Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos');
 
-// Essai d'upload d'image
-Route::get('upload-image', [ImageUploadController::class, 'index']);
-Route::post('upload-image', [ImageUploadController::class, 'store'])->name('image.store');
-
-
+// Partie demande d'ami
 Route::post('/friend-request', [FriendRequestController::class, 'send'])->name('friendrequest.send');
 
 // Partie Profil
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRequest');
+Route::get('/avatar', [AvatarController::class, 'show'])->name('avatar.show');
+Route::post('/avatar', [AvatarController::class, 'store'])->name('avatar.ajout');
 
 // Page Paramètres
 Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');

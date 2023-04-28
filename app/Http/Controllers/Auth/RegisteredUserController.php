@@ -31,16 +31,6 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        /* Je viens de rajouter cette partie du code, c'est pour l'upload de l'image
-        if ($request->hasFile('picture')) {
-            $picture = $request->file('picture');
-            $fileName = time() . '_' . $picture->getClientOriginalName();
-            $picture->move(public_path('images'), $fileName);
-            $picturePath = '/images/' . $fileName;
-        }
-        */
-
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],

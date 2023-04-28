@@ -33,7 +33,7 @@
     @yield('content')
     <footer>
         <ul>
-            <li><a href="https://www.patreon.com/user?u=91373358">Nous soutenir</a></li>
+            <li><a href="https://www.patreon.com/user?u=91373358">Me soutenir</a></li>
             <li><a href="{{ route('contact') }}">Contact</a></li>
             <li><a href="{{ route('contact') }}">Mention légales</a></li>
             <li><a href="{{ route('apropos') }}">A propos</a></li>

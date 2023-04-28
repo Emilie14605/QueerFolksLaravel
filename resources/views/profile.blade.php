@@ -6,7 +6,9 @@
 <h1>{{ $user->name }} {{ $user->firstname }} </h1>
 <p>{{ $user->description }}</p>
 
-<span>{{ $user->picture }}</span>
+
+<a href="{{ route('avatar.show') }}">Choisir un avatar</a>
+<img src="" alt="">
 
 <h2>Sexualité :</h2>
 {{ $user->sexualorientation }}
