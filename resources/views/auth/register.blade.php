@@ -55,13 +55,6 @@
             <x-input-error :messages="$errors->get('age')" class="mt-2" />
         </div>
 
-        <!-- Picture -->
-        <div>
-            <x-input-label for="picture" :value="__('Photo de profil')" />
-            <input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')" required autofocus autocomplete="picture" />
-            <x-input-error :messages="$errors->get('picture')" class="mt-2" />
-        </div>
-
         <!-- Description -->
         <div>
             <x-input-label for="description" :value="__('Description')" />

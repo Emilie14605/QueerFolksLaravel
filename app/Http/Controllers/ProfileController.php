@@ -21,6 +21,9 @@ class ProfileController extends Controller
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
             $user = User::find($id);
+            // $image = asset('images/'.$user->id.'/'.$user->picture);
+            // $image = $user->picture;
+            // $path = asset('storage/images/'.$user->id.'/'.$image);
             return view('profile')->with('user', $user);
         }    
     }

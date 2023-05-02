@@ -14,6 +14,8 @@ use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ParametersController;
 use App\Http\Controllers\FriendRequestController;
+use App\Http\Controllers\ImageUploadController;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,10 @@ Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.s
 Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRequest');
 Route::get('/avatar', [AvatarController::class, 'show'])->name('avatar.show');
 Route::post('/avatar', [AvatarController::class, 'store'])->name('avatar.ajout');
+
+// Partie upload d'images
+Route::get('/image-upload', [ImageUploadController::class, 'index'])->name('image.form');
+Route::post('/upload-image', [ImageUploadController::class, 'store'])->name('image.store');
 
 // Page Paramètres
 Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
