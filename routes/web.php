@@ -36,7 +36,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profileupdate');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
@@ -56,9 +56,6 @@ Route::post('/avatar', [AvatarController::class, 'store'])->name('avatar.ajout')
 // Partie upload d'images
 Route::get('/image-upload', [ImageUploadController::class, 'index'])->name('image.form');
 Route::post('/upload-image', [ImageUploadController::class, 'store'])->name('image.store');
-
-// Page Paramètres
-Route::get('/parameters', [ParametersController::class, 'seeParameters'])->name('parameters');
 
 // Partie Messages
 Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');

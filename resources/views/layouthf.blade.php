@@ -23,9 +23,9 @@
                 @endif
                 <li><a href="{{ route('blogs') }}">Blogs</a></li>
                 <li><a href="{{ route('messages') }}">Messages</a></li>
-                <li><a href="{{ route('search') }}">Recherche</a></li>
-                <li><a href="{{ route('parameters') }}">Paramètres</a></li>
-                <li><a href="{{ route('contact') }}">Nous contacter</a></li>
+                <li><a href="{{ route('search') }}">Page des profils</a></li>
+                <li><a href="{{ route('profile.edit') }}">Paramètres</a></li>
+                <li><a href="{{ route('contact') }}">Me contacter</a></li>
                 <li><a href="{{ route('notify') }}">Notifications</a></li>
             </ul>
         </nav>

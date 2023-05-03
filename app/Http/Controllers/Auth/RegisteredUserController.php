@@ -45,21 +45,36 @@ class RegisteredUserController extends Controller
             'lookingfor' => ['required', Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'firstname' => $request->firstname,
-            'surname' => $request->surname,
-            'age' => $request->age,
-            'description' => $request->description,
-            'gender' => $request->gender,
-            'sexualorientation' => $request->sexualorientation,
-            'romanticorientation' => $request->romanticorientation,
-            'lookingfor' => $request->lookingfor,
-        ]);
+        $user = new User;
 
-        event(new Registered($user));
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->firstname = $request->firstname;
+        $user->surname = $request->surname;
+        $user->age = $request->age;
+        $user->description = $request->description;
+        $user->gender = $request->gender;
+        $user->sexualorientation = $request->sexualorientation;
+        $user->romanticorientation = $request->romanticorientation;
+        $user->lookingfor = $request->lookingfor;
+        $user->save();
+
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        //     'firstname' => $request->firstname,
+        //     'surname' => $request->surname,
+        //     'age' => $request->age,
+        //     'description' => $request->description,
+        //     'gender' => $request->gender,
+        //     'sexualorientation' => $request->sexualorientation,
+        //     'romanticorientation' => $request->romanticorientation,
+        //     'lookingfor' => $request->lookingfor,
+        // ]);
+
+        // event(new Registered($user));
 
         Auth::login($user);
 

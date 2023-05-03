@@ -4,13 +4,14 @@
 @vite(['resources/css/style.css', 'resources/js/app.js'])
 @vite(['resources/css/profil.css'])
 
+<h1>Profil</h1>
 <section class="container">
     <div class="profile-picture">
         <img src="{{ asset('images/' . Auth::user()->id . '/' . Auth::user()->picture) }}" alt="photo de profil">
     </div>
 
     <div class="informations">
-        <h1>{{ $user->name }} {{ $user->firstname }}</h1>
+        <h1>{{ $user->surname }}</h1>
 
         <p>{{ $user->description }}</p>
 
@@ -43,6 +44,7 @@
 
     <div class="publications">
         <h2>Publications</h2>
+        
     </div>
 </section>
 @endsection

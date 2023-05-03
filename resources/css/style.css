@@ -15,7 +15,8 @@ header {
 
 /* Partie Body */
 body {
-    background-color: #ffcb83;
+    background-color: rgb(255, 203, 131, 0.75);
+font-family: sans-serif;
 }
 
 #burger {
@@ -52,7 +53,7 @@ body {
 }
 #menu a {
     text-decoration: none;
-    background-color: rgb(213, 7, 4);
+    background-color: rgb(4, 213, 63);
     color: black;
     border-width: 10px;
     padding: 5px;
