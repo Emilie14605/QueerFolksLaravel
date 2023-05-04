@@ -1,0 +1,10 @@
+.user{
+    display: grid;
+}
+
+.user img{
+    width: 200px;
+    height: auto;
+    overflow: hidden;
+    border: 2px solid black;    
+}

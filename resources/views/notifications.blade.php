@@ -5,14 +5,15 @@
 @vite(['resources/css/notifications.css'])
 @vite(['resources/js/style.js'])
 
-<h1>Bienvenue sur la page des notifications</h1>
+<section class="container">
+    <h1>Bienvenue sur la page des demandes d'amies</h1>
 
-<div class="container">
+    <p>Ici vous trouverez toutes les demandes d'amies que les autres utilisateurs vous envoient</p>
     @foreach($notifs as $notif)
     <div class="users">
         <p class="demande">Vous avez une demande d'ami de la part de :
             <a href="{{ route('profile.show', ['id' => $senders[$notif->sender_id]->id]) }}">{{ $senders[$notif->sender_id]->surname }}</a>
-        @if($notif->status === 'en attente')
+            @if($notif->status === 'en attente')
         <form action="{{ route('notifyadd', ['id' => $notif->id]) }}" method="post">
             @method('PUT')
             @csrf
@@ -26,9 +27,8 @@
         </form>
         @endif
         </p>
-        <a href="{{ route('notifydetails', ['id' => $notif->id]) }}">Détails</a>
     </div>
     @endforeach
-</div>
+</section>
 
 @endsection

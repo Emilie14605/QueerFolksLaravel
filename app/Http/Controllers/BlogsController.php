@@ -49,12 +49,12 @@ class BlogsController extends Controller
         }
     }
 
-
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'title' => ['required', 'string', 'max:50'],
-            'content' => ['required', 'string', 'max:255']
+            'content' => ['required', 'string', 'max:255'],
+            'picture' => ['required', 'image', 'max:16384']
         ]);
 
         $user = Auth::user();
@@ -66,6 +66,20 @@ class BlogsController extends Controller
         $blogs->created_at = now();
         $blogs->updated_at = now();
         $blogs->post_user_id = $user->id;
+
+
+        if($request->hasFile('picture')){
+            $imageName = time() . '.' . $request->picture->extension();
+            $path = 'images/blogs/' . $user->id;
+    
+            if(!file_exists($path)){
+                mkdir($path, 0777, true);
+            }
+    
+            $request->picture->move($path, $imageName);
+            $blogs->picture = $imageName;
+        };
+
         $blogs->save();
 
         return redirect('blogs')->with('success', "Le blog a été ajouté");

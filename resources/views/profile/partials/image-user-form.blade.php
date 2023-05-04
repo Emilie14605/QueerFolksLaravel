@@ -10,7 +10,7 @@
         </p>
     </header>
 
-    <form action="{{ route('image.store') }}" method="post">
+    <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <x-input-label for="image" :value="__('')" />

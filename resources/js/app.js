@@ -1,6 +1,5 @@
 import './bootstrap';
 import './script';
-import './avatar';
 
 import Alpine from 'alpinejs';
 

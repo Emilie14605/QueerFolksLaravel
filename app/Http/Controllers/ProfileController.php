@@ -29,7 +29,7 @@ class ProfileController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('index');
+        return redirect('/');
     }
     /**
      * Display the user's profile form.
@@ -87,6 +87,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('index');
+        return Redirect::to('/');
     }
 }

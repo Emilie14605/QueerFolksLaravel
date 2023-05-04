@@ -3,14 +3,13 @@
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js'])
 @vite(['resources/css/messages.css'])
-@vite(['resources/js/messages.js'])
 
 
 
-<div class="container">
+<section class="container">
     <h1>Envoyer un message</h1>
     <div class="form">
-        <form action="{{ route('messagesajout') }}" method="POST" name="messages-form">
+        <form action="{{ route('messages.ajout') }}" method="POST" name="messages-form">
             @method('POST')
             @csrf
             <select name="receiver" id="receiver">
@@ -24,23 +23,15 @@
             <button type="submit" name="submit">Envoyer</button>
         </form>
     </div>
-    <button type="button" id="sent">Messages envoyés</button>
-    <button type="button" id="received">Messages reçus</button>
+    <h2><a href="{{ route('messages.sent') }}">Voir les messages envoyés</a></h2>
+        @foreach($messages as $message)
+        <section class="messages" id="messages-received">
+            <p>Nouveau Message de </p>
+            <i>{{ $message->created_at }}</i>
+            <a href="{{ route('messages.details', ['id' => $message->id]) }}">Voir le message</a>
+        </section>
+        @endforeach
 
-    @foreach($messages as $message)
-    <section class="messages" id="messages-received">
-        <p>Nouveau Message</p>
-        <i>{{ $message->created_at }}</i>
-        <a href="{{ route('messagesdetails', ['id' => $message->id]) }}">Voir le message</a>
-    </section>
-    @endforeach
-    @foreach($messagessent as $message)
-    <section class="messages" id="messages-sent">
-        <p>Message envoyé</p>
-        <i>{{ $message->created_at }}</i>
-        <a href="{{ route('messagesdetails', ['id' => $message->id]) }}">Voir le message</a>
-    </section>
-    @endforeach
-</div>
+</section>
 
 @endsection

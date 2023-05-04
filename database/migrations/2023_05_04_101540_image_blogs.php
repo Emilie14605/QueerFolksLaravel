@@ -12,12 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('avatar', function(Blueprint $table)
-        {
-            $table->id();
-            $table->unsignedBigInteger('avatar_user_id');
-            $table->foreign('avatar_user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('avatar_place', 50);
+        Schema::table('blogs', function(Blueprint $table){
+            $table->string('picture', 250)->default('');
         });
     }
 

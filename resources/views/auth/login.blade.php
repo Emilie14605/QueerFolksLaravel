@@ -7,7 +7,7 @@
         {{ session('status') }}
     </div>
     @endif
-
+    
     <form method="POST" action="{{ route('login') }}">
         @csrf
 

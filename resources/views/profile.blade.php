@@ -34,12 +34,6 @@
             <button type="submit" name="submit">Demander en ami.e</button>
         </form>
         @endif
-
-        <form action="{{ route('logout') }}" method="POST">
-            @method('POST')
-            @csrf
-            <button type="submit" name="btn-logout">Se déconnecter</button>
-        </form>
     </div>
 
     <div class="publications">

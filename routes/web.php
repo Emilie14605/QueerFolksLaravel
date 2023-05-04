@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
+
 // Routes pour accéder aux différentes pages
 Route::get('/home', [HomeController::class, 'seeHome'])->name('index');
 Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos');
@@ -58,9 +60,10 @@ Route::get('/image-upload', [ImageUploadController::class, 'index'])->name('imag
 Route::post('/upload-image', [ImageUploadController::class, 'store'])->name('image.store');
 
 // Partie Messages
-Route::get('/messages', [MessagesController::class, 'seeMessages'])->name('messages');
-Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messagesajout');
-Route::get('/messagesdetails/{id}', [MessagesController::class, 'details'])->name('messagesdetails');
+Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
+Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messages.ajout');
+Route::get('/messagesdetails/{id}', [MessagesController::class, 'details'])->name('messages.details');
+Route::get('/messagessent', [MessagesController::class, 'sent'])->name('messages.sent');
 
 // Partie Notifications
 Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
@@ -80,7 +83,6 @@ Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
 
 Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');
-Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 
 require __DIR__.'/auth.php';

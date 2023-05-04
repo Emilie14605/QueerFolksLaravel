@@ -11,14 +11,16 @@ header {
 .icone-user {
     height: auto;
     max-width: 20px;
+    cursor: pointer;
 }
 
 /* Partie Body */
 body {
     background-color: rgb(255, 203, 131, 0.75);
-font-family: sans-serif;
+    font-family: sans-serif;
 }
 
+/* Partie menu icone burger */
 #burger {
     height: auto;
     max-width: 20px;
@@ -28,36 +30,82 @@ font-family: sans-serif;
 #menu {
     display: none;
     position: relative;
-    width: 100%;
-    left: 0;
-    right: 0;
-    background-color: #71cdf4;
-    padding: 10px;
+    border-radius: 0;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px 10px;
+    /* transition: all 1s ease-out; Ne fonctionne pas */
+    overflow: hidden;
 }
 
 #menu ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+    background-color: #71cdf4;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
 
 }
 
 #menu li {
-    display: block;
-    /* width: 100%; */
-    text-align: center;
-    margin-bottom: 10px;
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 50px;
 }
+
 #menu a {
     text-decoration: none;
-    background-color: rgb(4, 213, 63);
     color: black;
-    border-width: 10px;
-    padding: 5px;
-    width: 100%;
+}
+
+
+/* Partie menu icone compte */
+
+.popup {
+    display: none;
+    position: relative;
+    border-radius: 0;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px 10px;
+    /* transition: all 1s ease-out; Ne fonctionne pas */
+    overflow: hidden;
+}
+
+.popup-content {
+    background-color: #71cdf4;
+    width: 20%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.popup-content li {
+    list-style-type: none;
+}
+
+.popup-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Partie Footer */
@@ -76,4 +124,25 @@ footer ul li a {
 
 footer ul li {
     list-style-type: none;
+}
+
+@media(max-width: 1130px) {
+    #menu li {
+        list-style-type: none;
+        margin-right: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #menu ul {
+        background-color: #71cdf4;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    
+    }
 }

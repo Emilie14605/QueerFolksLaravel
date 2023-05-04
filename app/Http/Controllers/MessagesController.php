@@ -13,7 +13,7 @@ use Illuminate\Http\RedirectResponse;
 class MessagesController extends Controller
 {
     //
-    public function seeMessages()
+    public function index()
     {
         if (Auth::guest()) {
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
@@ -28,26 +28,34 @@ class MessagesController extends Controller
             $senderId = $messagesreceived->pluck('messages_sender_id');
             $senders = User::whereIn('id', $senderId)->get();
 
-            // Cette partie sert à afficher seulement les messages dont l'utilisateur est l'envoyeur.e
-            $messagessent = Messages::whereIn('messages_sender_id', [Auth::id()])->get();
-            $receiverId = $messagessent->pluck('messages_receiver_id');
-            $receivers = User::whereIn('id', $receiverId)->get();
-
-            return view('messages')->with('messages', $messagesreceived)->with('senders', $senders)->with('messagessent', $messagessent)->with('receivers', $receivers)->with('users', $users);
+            return view('messages')->with('messages', $messagesreceived)->with('senders', $senders)->with('users', $users);
         }
+    }
+
+    public function sent()
+    {
+        $friends = FriendRequest::where('sender_id', Auth::id())->where('status', 'acceptée')->get();
+        $receiverIds = $friends->pluck('receiver_id');
+        $users = User::whereIn('id', $receiverIds)->get();
+
+        // Cette partie sert à afficher seulement les messages dont l'utilisateur est l'envoyeur.e
+        $msgsent = Messages::whereIn('messages_sender_id', [Auth::id()])->get();
+        $receiverId = $msgsent->pluck('messages_receiver_id');
+        $receivers = User::whereIn('id', $receiverId)->get();
+
+        return view('messagessent')->with('messages', $msgsent)->with('receivers', $receivers)->with('users', $users);
     }
 
     public function details($id)
     {
-        if(Auth::guest())
-        {
+        if (Auth::guest()) {
             return redirect()->route('login')->with('status', 'Vous devez vous connectez pour accéder à cette page');
         } else {
             $message = Messages::findOrFail($id);
             $sender = User::findOrFail($message->messages_sender_id);
             $receiver = User::findOrFail($message->messages_receiver_id);
 
-            return view('messagesdetails')->with('message', $message)->with('sender', $sender);
+            return view('messagesdetails')->with('message', $message)->with('sender', $sender)->with('receiver', $receiver);
         }
     }
 

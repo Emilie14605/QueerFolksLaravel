@@ -1,0 +1,15 @@
+.container{
+    display: grid;
+    place-items: center;
+}
+
+.container p {
+    width: 75%;
+}
+
+.container img {
+    height: auto;
+    width: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
