@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Blogs;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\User;
 
 class ProfileController extends Controller
 {
     // On affiche la page du profil avec toute les informations de l'utilisateurs concerné
-    public function show($id)
+    public function index($id)
     {
-        if(Auth::guest())
-        {
+        if (Auth::guest()) {
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
             $user = User::find($id);
-            return view('profile')->with('user', $user);
-        }    
+            $blogs = Blogs::where('post_user_id', $user->id)->get();
+            return view('profile')->with('user', $user)->with('blogs', $blogs);
+        }
     }
 
     // On déconnecte l'utilisateur avec un simple Auth::logout et on le redirige vers la page d'accueil où il devra se reconnecter ou se recréer un compte
@@ -46,6 +46,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+
         $user = Auth::user();
 
         $user->name = $request->input('name');

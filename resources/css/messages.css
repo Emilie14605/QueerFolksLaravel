@@ -4,7 +4,8 @@
 }
 
 form{
-    background-color: rgb(233, 224, 224);
+    background-color: rgb(24, 155, 199, 0.24);
+    /* background-color: rgb(233, 224, 224); */
     display: grid;
     grid-template-columns: 1fr;
     margin-bottom: 5%;
@@ -21,7 +22,7 @@ label, select, textarea{
 }
 
 .messages{
-    background-color: #f5d94c;
+    background-color: #edd;
     border: 1px solid black;
     border-radius: 1px;
     margin-bottom: 2%;

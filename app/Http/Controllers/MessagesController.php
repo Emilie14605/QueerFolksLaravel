@@ -13,7 +13,7 @@ use Illuminate\Http\RedirectResponse;
 class MessagesController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         if (Auth::guest()) {
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
@@ -28,7 +28,18 @@ class MessagesController extends Controller
             $senderId = $messagesreceived->pluck('messages_sender_id');
             $senders = User::whereIn('id', $senderId)->get();
 
-            return view('messages')->with('messages', $messagesreceived)->with('senders', $senders)->with('users', $users);
+            $user_id = $request->input('user_id');
+
+            return view('messages')->with('messages', $messagesreceived)->with('senders', $senders)->with('users', $users)->with('user_id', $user_id);
+        }
+    }
+
+    public function user($id){
+        if (Auth::guest()) {
+            return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
+        } else {
+            $users = User::whereIn('id', $id)->select('id', 'surname')->get();
+            return view('messages')->with('users', $users);
         }
     }
 
@@ -43,7 +54,7 @@ class MessagesController extends Controller
         $receiverId = $msgsent->pluck('messages_receiver_id');
         $receivers = User::whereIn('id', $receiverId)->get();
 
-        return view('messagessent')->with('messages', $msgsent)->with('receivers', $receivers)->with('users', $users);
+        return view('messages-sent')->with('messages', $msgsent)->with('receivers', $receivers)->with('users', $users);
     }
 
     public function details($id)
@@ -55,7 +66,7 @@ class MessagesController extends Controller
             $sender = User::findOrFail($message->messages_sender_id);
             $receiver = User::findOrFail($message->messages_receiver_id);
 
-            return view('messagesdetails')->with('message', $message)->with('sender', $sender)->with('receiver', $receiver);
+            return view('messages-details')->with('message', $message)->with('sender', $sender)->with('receiver', $receiver);
         }
     }
 

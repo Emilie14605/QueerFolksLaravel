@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AproposController extends Controller
 {
     //
-    public function seeApropos()
+    public function index()
     {
         return view('apropos');
     }

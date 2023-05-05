@@ -16,7 +16,8 @@ header {
 
 /* Partie Body */
 body {
-    background-color: rgb(255, 203, 131, 0.75);
+    background-color: #edd;
+    /* background-color: rgb(255, 203, 131, 0.75); */
     font-family: sans-serif;
 }
 

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class SearchController extends Controller
 {
     // Fonction pour voir la page de recherche, elle affiche tout les profis existant, à voir si on laisse la possiblité de recherche ou juste d'afficher et de cchercher avec la souris
-    public function seeSearch()
+    public function index()
     {
         if(Auth::guest())
         {
@@ -17,7 +17,7 @@ class SearchController extends Controller
         } else {
             $users = User::orderBy('created_at', 'DESC')->get();
 
-            return view('search')->with('users', $users);
+            return view('users')->with('users', $users);
         }
     }
 }

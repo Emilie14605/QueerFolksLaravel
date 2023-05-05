@@ -6,53 +6,24 @@ use App\Models\Blogs;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class BlogsController extends Controller
 {
     //
-    public function seeBlogs()
+
+    public function form()
     {
-        if(Auth::guest())
-        {
+        if (Auth::guest()) {
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
-            $blogs = Blogs::orderBy('created_at', 'DESC')->get();
-            return view('blogs')->with('blogs',$blogs);
-        }
-        
-    }
-
-    public function seeBlogsForm()
-    {
-        if(Auth::guest())
-        {
-            return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
-        } else {
-            if(Auth::user()->isAdmin){
-                return view('blogsajout');
-            } else {
-                return redirect()->back();
-            }
-        }
-    }
-
-    public function details($id)
-    {
-        if(Auth::guest())
-        {
-            return redirect()->route('login')->with('status', 'Vous devez vous connectez pour accéder à cette page');
-        } else {
-            $blog = Blogs::findOrFail($id);
-
-            return view('blogsdetails')->with('blog', $blog);
+            return view('profile-blog-form');
         }
     }
 
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'title' => ['required', 'string', 'max:50'],
+            'title' => ['required', 'string', 'max:150'],
             'content' => ['required', 'string', 'max:255'],
             'picture' => ['required', 'image', 'max:16384']
         ]);
@@ -82,13 +53,13 @@ class BlogsController extends Controller
 
         $blogs->save();
 
-        return redirect('blogs')->with('success', "Le blog a été ajouté");
+        return redirect('profile-blog-form')->with('success', "Le blog a été ajouté");
     }
 
-    public function supprimerBlog($id)
+    public function delete($id)
     {
         $blogs = Blogs::findOrFail($id);
         $blogs->delete();
-        return redirect('blogs')->with('success',"Le blogs a été supprimé");
+        return redirect('publications')->with('success',"La publications a été supprimé");
     }
 }

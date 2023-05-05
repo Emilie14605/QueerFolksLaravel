@@ -60,22 +60,6 @@ class RegisteredUserController extends Controller
         $user->lookingfor = $request->lookingfor;
         $user->save();
 
-        // $user = User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        //     'firstname' => $request->firstname,
-        //     'surname' => $request->surname,
-        //     'age' => $request->age,
-        //     'description' => $request->description,
-        //     'gender' => $request->gender,
-        //     'sexualorientation' => $request->sexualorientation,
-        //     'romanticorientation' => $request->romanticorientation,
-        //     'lookingfor' => $request->lookingfor,
-        // ]);
-
-        // event(new Registered($user));
-
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

@@ -23,11 +23,11 @@
             @if(Auth::check())
             <li><a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a></li>
             @endif
-            <li><a href="{{ route('blogs') }}">Blogs</a></li>
+            <li><a href="{{ route('publications') }}">Publications</a></li>
             <li><a href="{{ route('messages') }}">Messages</a></li>
-            <li><a href="{{ route('search') }}">Page des profils</a></li>
+            <li><a href="{{ route('utlisateurs') }}">Page des profils</a></li>
+            <li><a href="{{ route('notif') }}">Demandes d'amies</a></li>
             <li><a href="{{ route('contact') }}">Me contacter</a></li>
-            <li><a href="{{ route('notify') }}">Demandes d'amies</a></li>
         </ul>
     </nav>
 

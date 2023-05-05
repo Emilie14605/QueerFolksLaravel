@@ -36,9 +36,21 @@ class FriendRequestController extends Controller
         return redirect('notifications');
     }
 
-    // Fonction pour refuser et supprimer la demande d'ami.e
-    public function del($id)
+    public function reject(Request $request, $id)
     {
+        $status = $request->input('status');
+
+        $friend_request = FriendRequest::findOrFail($id);
+        $friend_request->status = $status;
+        $friend_request->save();
+        
+        return redirect('notifications');
+    }
+
+    // Fonction pour refuser et supprimer la demande d'ami.e
+    public function delete($id)
+    {
+        
         $del = FriendRequest::findOrFail($id);
         $del->delete();
         

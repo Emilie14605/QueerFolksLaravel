@@ -4,17 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\NotifyController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AproposController;
-use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ParametersController;
-use App\Http\Controllers\FriendRequestController;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\PublicationsController;
+use App\Http\Controllers\FriendRequestController;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /*
@@ -43,17 +45,17 @@ Route::middleware('auth')->group(function () {
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 // Routes pour accéder aux différentes pages
-Route::get('/home', [HomeController::class, 'seeHome'])->name('index');
-Route::get('/apropos', [AproposController::class, 'seeApropos'])->name('apropos');
+Route::get('/home', [HomeController::class, 'index'])->name('index');
+Route::get('/apropos', [AproposController::class, 'index'])->name('apropos');
+
+// Partie Profil
+Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.show');
+Route::get('profile-blog-form', [BlogsController::class, 'form'])->name('profile.blog');
+Route::post('profile-blog-form-add', [BlogsController::class, 'store'])->name('blog.add');
+
 
 // Partie demande d'ami
 Route::post('/friend-request', [FriendRequestController::class, 'send'])->name('friendrequest.send');
-
-// Partie Profil
-Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
-Route::post('/profile', [FriendRequestController::class, 'add'])->name('friendRequest');
-Route::get('/avatar', [AvatarController::class, 'show'])->name('avatar.show');
-Route::post('/avatar', [AvatarController::class, 'store'])->name('avatar.ajout');
 
 // Partie upload d'images
 Route::get('/image-upload', [ImageUploadController::class, 'index'])->name('image.form');
@@ -66,22 +68,21 @@ Route::get('/messagesdetails/{id}', [MessagesController::class, 'details'])->nam
 Route::get('/messagessent', [MessagesController::class, 'sent'])->name('messages.sent');
 
 // Partie Notifications
-Route::get('/notifications', [NotifyController::class, 'show'])->name('notify');
-Route::get('/notifications/{id}', [NotifyController::class, 'details'])->name('notifydetails');
-Route::delete('/notifications/{id}', [FriendRequestController::class, 'del'])->name('notifydel');
-Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name('notifyadd');
+Route::get('/notifications', [NotifyController::class, 'show'])->name('notif');
+Route::put('/notifications/{id}', [FriendRequestController::class, 'reject'])->name('notif.reject');
+Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name('notif.add');
 
 // Partie Blog
-Route::get('/blogs', [BlogsController::class, 'seeBlogs'])->name('blogs');
-Route::get('/blogsdetails/{id}', [BlogsController::class, 'details'])->name('blogsdetails');
-Route::get('/blogsajout', [BlogsController::class, 'seeBlogsForm'])->name('blogsajoutform');
-Route::post('/blogs/ajoute', [BlogsController::class, 'store'])->name('blogs.ajout');
-Route::delete('/blogs/{id}', [BlogsController::class, 'supprimerBlog']);
+Route::get('/publications', [PostsController::class, 'index'])->name('publications');
+Route::get('/publications-details/{id}', [PostsController::class, 'details'])->name('publications.details');
+Route::get('/publications-ajout', [PostsController::class, 'form'])->name('publications.form');
+Route::post('/publications-add', [PostsController::class, 'store'])->name('publications.add');
+Route::delete('/publications/{id}', [PostsController::class, 'delete']);
 
-Route::get('/contact', [ContactController::class, 'seeContact'])->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
 
-Route::get('/search', [SearchController::class, 'seeSearch'])->name('search');
+Route::get('/users', [SearchController::class, 'index'])->name('utlisateurs');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');
 
 

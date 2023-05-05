@@ -14,17 +14,18 @@
         <p class="demande">Vous avez une demande d'ami de la part de :
             <a href="{{ route('profile.show', ['id' => $senders[$notif->sender_id]->id]) }}">{{ $senders[$notif->sender_id]->surname }}</a>
             @if($notif->status === 'en attente')
-        <form action="{{ route('notifyadd', ['id' => $notif->id]) }}" method="post">
-            @method('PUT')
-            @csrf
-            <input type="hidden" name="status" value="acceptée">
-            <button type="submit" name="submit">✅</button>
-        </form>
-        <form action="{{ route('notifydel', ['id' => $notif->id]) }}" method="post">
-            @method('DELETE')
-            @csrf
-            <button type="submit" name="submit">❌</button>
-        </form>
+                <form action="{{ route('notif.add', ['id' => $notif->id]) }}" method="post">
+                    @method('PUT')
+                    @csrf
+                    <input type="hidden" name="status" value="acceptée">
+                    <button type="submit" name="submit">✅</button>
+                </form>
+                <form action="{{ route('notif.reject', ['id' => $notif->id]) }}" method="post">
+                    @method('PUT')
+                    @csrf
+                    <input type="hidden" name="status" value="refusée">
+                    <button type="submit" name="submit">❌</button>
+                </form>
         @endif
         </p>
     </div>

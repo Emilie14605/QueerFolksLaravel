@@ -27,8 +27,4 @@ class NotifyController extends Controller
         }
     }
 
-    public function details()
-    {
-        return view('notificationsdetails');
-    }
 }

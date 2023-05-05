@@ -33,12 +33,21 @@
             <input type="hidden" name="status" value="en attente">
             <button type="submit" name="submit">Demander en ami.e</button>
         </form>
+        <a href="{{ route('messages', ['user_id' => $user->id]) }}">Envoyer un message</a>
         @endif
     </div>
 
     <div class="publications">
-        <h2>Publications</h2>
-        
+        <div class="blogs">
+            <h2>Publications</h2>
+            <a href="{{ route('profile.blog') }}">Ajouter une publication</a>
+            @foreach($blogs as $blog)
+            <h2>{{ $blog->title }}</h2><i>{{ $blog->created_at }}</i>
+            <br>
+            <img src="{{ asset('images/blogs/'. Auth::user()->id . '/' . $blog->picture) }}" alt="">
+            <p>{{ $blog->content }}</p>
+            @endforeach
+        </div>
     </div>
 </section>
 @endsection
