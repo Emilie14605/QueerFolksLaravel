@@ -4,7 +4,8 @@
 }
 
 form{
-    background: rgb(230, 230, 230);
+    background-color: hsla(200, 64%, 62%, 0.504);
+    /* background: rgb(230, 230, 230); */
     /* background: #f2f2f2; */
     display: grid;
     grid-template-columns: 1fr;
@@ -38,7 +39,8 @@ select, textarea{
 }
 
 .messages{
-    background-color: #edd;
+    background: rgb(230, 230, 230);
+    /* background-color: #edd; */
     border: 1px solid black;
     border-radius: 1px;
     margin-bottom: 2%;
@@ -46,11 +48,21 @@ select, textarea{
     width: 50%;
 }
 
-.messages a {
+.container a {
     background: #4CAF50;
     color: #FFFFFF;
     text-decoration: none;
     padding: 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+.container h2 {
+    background: #4CAF50;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 8px;
+    margin: 5%;
     border: 0;
     cursor: pointer;
 }

@@ -5,7 +5,8 @@ header {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
-    background-color: #71cdf4;
+    background: #4CAF50;
+    /* background-color: #71cdf4; */
     height: 100px;
 }
 
@@ -34,7 +35,8 @@ header {
 /* Partie Body */
 
 body {
-    background-color: #edd;
+    background: #86b9d8;
+    /* background-color: #edd; */
     /* background-color: rgb(255, 203, 131, 0.75); */
     font-family: sans-serif;
 }
@@ -125,7 +127,8 @@ body {
 /* Partie Footer */
 
 footer {
-    background-color: #71cdf4;
+    background: #4CAF50;
+    /* background-color: #71cdf4; */
     position: relative;
     bottom: 0;
     width: 100%;
@@ -134,7 +137,7 @@ footer {
 
 footer ul li a {
     text-decoration: none;
-    color: black;
+    color: #FFFFFF;
 }
 
 footer ul li {
