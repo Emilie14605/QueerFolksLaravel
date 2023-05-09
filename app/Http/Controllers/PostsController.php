@@ -39,8 +39,8 @@ class PostsController extends Controller
             return redirect()->route('login')->with('status', 'Vous devez vous connectez pour accéder à cette page');
         } else {
             $post = Posts::findOrFail($id);
-
-            return view('publications-details')->with('post', $post);
+            $dateCreation = date('d-m-Y', strtotime($post->created_at));
+            return view('publications-details')->with('post', $post)->with('date', $dateCreation);
         }
     }
 

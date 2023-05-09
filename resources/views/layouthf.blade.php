@@ -12,9 +12,9 @@
 
 <body>
     <header>
-        <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone-burger" id="burger">
-        <a href="{{ route('index') }}"><img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone-logo"></a>
-        <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone-user" id="compte">
+        <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone" id="burger">
+        <a href="{{ route('index') }}"><img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone" id="logo"></a>
+        <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone" id="compte">
     </header>
 
     <nav class="menu-nav" id="menu">

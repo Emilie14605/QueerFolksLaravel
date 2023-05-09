@@ -116,7 +116,7 @@
                 <option value="Homoromantique" {{ old('romanticorientation', $user->romanticorientation) === 'Homoromantique' ? 'selected' : '' }}>Homoromantique</option>
                 <option value="Biromantique" {{ old('romanticorientation', $user->romanticorientation) === 'Biromantique' ? 'selected' : '' }}>Biromantique</option>
                 <option value="Panromantique" {{ old('romanticorientation', $user->romanticorientation) === 'Panromantique' ? 'selected' : '' }}>Panromantique</option>
-                <option value="Demi-romantique" {{ old('romanticorientation', $user->romanticorientation) === 'Demi-romantique' ? 'selected' : '' }}>Demi-romantique</option>
+                <option value="Demi_romantique" {{ old('romanticorientation', $user->romanticorientation) === 'Demi_romantique' ? 'selected' : '' }}>Demi-romantique</option>
                 <option value="Aromantique" {{ old('romanticorientation', $user->romanticorientation) === 'Aromantique' ? 'selected' : '' }}>Aromantique</option>
                 <option value="Heteroromantique" {{ old('romanticorientation', $user->romanticorientation) === 'Heteroromantique' ? 'selected' : '' }}>Heteroromantique</option>
             </select>

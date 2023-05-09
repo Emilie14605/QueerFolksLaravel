@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Blogs;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
@@ -20,8 +21,9 @@ class ProfileController extends Controller
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
             $user = User::find($id);
+            $romanticOrientation = str_replace('_', '-', $user->romanticorientation);
             $blogs = Blogs::where('post_user_id', $user->id)->get();
-            return view('profile')->with('user', $user)->with('blogs', $blogs);
+            return view('profile')->with('user', $user)->with('romanticOrientation', $romanticOrientation)->with('blogs', $blogs);
         }
     }
 
@@ -47,18 +49,30 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
 
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:20'],
+            'age' => ['required', 'numeric', 'min:18'],
+            'description' => ['required', 'string', 'max:255'],
+            'gender' => ['required', Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
+            'sexualorientation' => ['required', Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
+            'romanticorientation' => ['required', Rule::in(['Homoromantique', 'Biromantique', 'Panromantique', 'Demi_romantique', 'Aromantique', 'Heteroromantique'])],
+            'lookingfor' => ['required', Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
+        ]);
+
         $user = Auth::user();
 
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->firstname = $request->input('firstname');
-        $user->surname = $request->input('surname');
-        $user->age = $request->input('age');
-        $user->description = $request->input('description');
-        $user->gender = $request->input('gender');
-        $user->sexualorientation = $request->input('sexualorientation');
-        $user->romanticorientation = $request->input('romanticorientation');
-        $user->lookingfor = $request->input('lookingfor');
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->firstname = $request->firstname;
+        $user->surname = $request->surname;
+        $user->age = $request->age;
+        $user->description = $request->description;
+        $user->gender = $request->gender;
+        $user->sexualorientation = $request->sexualorientation;
+        $user->romanticorientation = $request->romanticorientation;
+        $user->lookingfor = $request->lookingfor;
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;

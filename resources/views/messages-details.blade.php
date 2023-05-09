@@ -23,7 +23,7 @@
                 <option value="{{ $sender->id }}">{{ $sender->surname }}</option>
             </select>
             <label for="message"></label>
-            <textarea name="content" id="content" cols="75" rows="5"></textarea>
+            <textarea name="content" id="content" cols="75" rows="5" placeholder="Message"></textarea>
             <button type="submit" name="submit">Envoyer</button>
         </form>
     </div>

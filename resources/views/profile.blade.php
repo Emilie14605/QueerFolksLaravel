@@ -19,7 +19,7 @@
         {{ $user->sexualorientation }}
 
         <h2>Orientation Romantique :</h2>
-        {{ $user->romanticorientation }}
+        {{ $romanticOrientation }}
 
         <h2>Genre :</h2>
         {{ $user->gender }}

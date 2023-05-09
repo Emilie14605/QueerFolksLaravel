@@ -39,6 +39,11 @@
   margin-top: 20px;
 }
 
+.publications img {
+  height: auto;
+  width: 200px;
+}
+
 /* Partie Responsive */
 
 @media (min-width: 768px) {

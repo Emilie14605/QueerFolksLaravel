@@ -69,7 +69,7 @@ Route::get('/messagessent', [MessagesController::class, 'sent'])->name('messages
 
 // Partie Notifications
 Route::get('/notifications', [NotifyController::class, 'show'])->name('notif');
-Route::put('/notifications/{id}', [FriendRequestController::class, 'reject'])->name('notif.reject');
+Route::post('/notifications/{id}', [FriendRequestController::class, 'reject'])->name('notif.reject');
 Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name('notif.add');
 
 // Partie Blog

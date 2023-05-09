@@ -1,20 +1,38 @@
 /* Partie Header */
+
 header {
-    background-color: #71cdf4;
-    width: 100%;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
     align-items: center;
+    background-color: #71cdf4;
+    height: 100px;
 }
 
-.icone-user {
+#burger {
     height: auto;
-    max-width: 20px;
+    max-width: 30px;
     cursor: pointer;
 }
 
+#logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    max-width: 50px;
+    cursor: pointer;
+}
+
+
+#compte {
+    height: auto;
+    max-width: 30px;
+    cursor: pointer;
+}
+
+
 /* Partie Body */
+
 body {
     background-color: #edd;
     /* background-color: rgb(255, 203, 131, 0.75); */
@@ -22,11 +40,6 @@ body {
 }
 
 /* Partie menu icone burger */
-#burger {
-    height: auto;
-    max-width: 20px;
-    cursor: pointer;
-}
 
 #menu {
     display: none;
@@ -110,6 +123,7 @@ body {
 }
 
 /* Partie Footer */
+
 footer {
     background-color: #71cdf4;
     position: relative;
@@ -126,6 +140,8 @@ footer ul li a {
 footer ul li {
     list-style-type: none;
 }
+
+/* Partie Responsive */
 
 @media(max-width: 1130px) {
     #menu li {

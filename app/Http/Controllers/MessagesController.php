@@ -23,14 +23,25 @@ class MessagesController extends Controller
             $senderIds = $friends->pluck('sender_id');
             $users = User::whereIn('id', $senderIds)->get();
 
-            // Cette partie sert à afficher seulement les messges dont l'utilisateur est le/la destinataire
+            $friends2 = FriendRequest::where('sender_id', Auth::id())->where('status', 'acceptée')->get();
+            $receiverIds = $friends2->pluck('receiver_id');
+            $users2 = User::whereIn('id', $receiverIds)->get();
+
+            // Cette partie sert à afficher seulement les messages dont l'utilisateur est le/la destinataire
             $messagesreceived = Messages::whereIn('messages_receiver_id', [Auth::id()])->get();
             $senderId = $messagesreceived->pluck('messages_sender_id');
             $senders = User::whereIn('id', $senderId)->get();
 
             $user_id = $request->input('user_id');
 
-            return view('messages')->with('messages', $messagesreceived)->with('senders', $senders)->with('users', $users)->with('user_id', $user_id);
+            // $dateCreation = date('d-m-Y', strtotime($messagesreceived->created_at));
+
+            return view('messages')
+                    ->with('messages', $messagesreceived)
+                    ->with('senders', $senders)
+                    ->with('users', $users)
+                    ->with('users2', $users2)
+                    ->with('user_id', $user_id);
         }
     }
 

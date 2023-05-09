@@ -21,7 +21,7 @@
                     <button type="submit" name="submit">✅</button>
                 </form>
                 <form action="{{ route('notif.reject', ['id' => $notif->id]) }}" method="post">
-                    @method('PUT')
+                    @method('POST')
                     @csrf
                     <input type="hidden" name="status" value="refusée">
                     <button type="submit" name="submit">❌</button>

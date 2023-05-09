@@ -9,7 +9,11 @@
             {{ __("Choisissez ou modifier votre photo de profil") }}
         </p>
     </header>
-
+    @if (session('status'))
+    <div class="alert alert-warning">
+        {{ session('status') }}
+    </div>
+    @endif
     <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>

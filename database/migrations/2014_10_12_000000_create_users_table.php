@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('description', 250)->default('');
             $table->enum('gender', ['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])->default('Genderqueer');
             $table->enum('sexualorientation', ['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])->default('Bisexuelle');
-            $table->enum('romanticorientation', ['Homoromantique', 'Biromantique', 'Panromantique', 'Demi-romantique', 'Aromantique', 'Heteroromantique',])->default('Biromantique');
+            $table->enum('romanticorientation', ['Homoromantique', 'Biromantique', 'Panromantique', 'Demi_romantique', 'Aromantique', 'Heteroromantique',])->default('Biromantique');
             $table->enum('lookingfor', ['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])->default('Relation Amicale');
             $table->boolean('isAdmin')->default(false);
             $table->rememberToken();

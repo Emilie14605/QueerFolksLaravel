@@ -28,7 +28,7 @@ class ProfileUpdateRequest extends FormRequest
             'description' => ['string', 'max:255'],
             'gender' => [Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
             'sexualorientation' => [Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
-            'romanticorientation' => [Rule::in(['Homorantique', 'Biromantique', 'Panromantique', 'Demi-Romantique', 'Aromantique', 'Heteroromantique'])],
+            'romanticorientation' => [Rule::in(['Homoromantique', 'Biromantique', 'Panromantique', 'Demi_romantique', 'Aromantique', 'Heteroromantique'])],
             'lookingfor' => [Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
         ];
     }

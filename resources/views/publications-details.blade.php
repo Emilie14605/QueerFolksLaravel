@@ -10,7 +10,7 @@
     @if($post)
     <div class="blog-detail">
         <h3>Auteur.e : {{$post->author}}</h3>
-        <i>{{$post->created_at}}</i>
+        <i>{{$date}}</i>
         <img src="{{ asset('images/publications/' . $post->post_user_id . '/' . $post->picture) }}" alt="Photo du blog">
         <p>{{$post->content}}</p>
     </div>
