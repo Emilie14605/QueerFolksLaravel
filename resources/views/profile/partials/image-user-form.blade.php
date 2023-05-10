@@ -23,7 +23,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Enregistrer la photo de profil') }}</x-primary-button>
+            <x-primary-button style="background: hsl(122, 39%, 59%); color: #FFFFFF; margin-top: 20px">{{ __('Enregistrer la photo de profil') }}</x-primary-button>
         </div>
     </form>
 

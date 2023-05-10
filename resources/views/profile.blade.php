@@ -13,7 +13,7 @@
     </div>
     <div class="informations">
 
-        <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Configurer le profil</a>
+        <a href="{{ route('profile.edit', ['id' => Auth::user()->id]) }}">Configurer le profil</a>
 
         <h2>Sexualité :</h2>
         {{ $user->sexualorientation }}

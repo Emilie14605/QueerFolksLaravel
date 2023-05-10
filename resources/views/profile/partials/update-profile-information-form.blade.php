@@ -136,7 +136,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Enregistrer les modifications') }}</x-primary-button>
+            <x-primary-button style="background: hsl(122, 39%, 59%); color: #FFFFFF">{{ __('Enregistrer les modifications') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
             <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)" class="text-sm text-gray-600">{{ __('Saved.') }}</p>
