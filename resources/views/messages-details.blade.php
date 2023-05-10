@@ -5,14 +5,14 @@
 @vite(['resources/css/messages.css'])
 
 <section class="container">
+
     <h1>Message</h1>
+    
     @if($message)
-
-    <section class="messages">
-        <p>Envoyeur.e : {{ $sender->surname }}</p>
-        <p>{{ $message->content }}</p>
-    </section>
-
+        <section class="messages">
+            <p>Envoyeur.e : {{ $sender->surname }}</p>
+            <p>{{ $message->content }}</p>
+        </section>
     @endif
     
     <div class="form">

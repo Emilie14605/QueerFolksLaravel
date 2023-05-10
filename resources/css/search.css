@@ -1,10 +1,55 @@
-.user{
+h1 {
+    text-align: center;
+    /* border-bottom: 2px solid black; */
+}
+.container {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.user img{
+.user {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #4CAF50;
+    border-width: 2px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.user h2 {
+    margin-top: 0;
+}
+
+.user img {
     width: 200px;
     height: auto;
     overflow: hidden;
-    border: 2px solid black;    
+    margin: auto;
+}
+
+.user a {
+    background: #4CAF50;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 10px;
+    margin-bottom: 0;
+    padding: 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+.links {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+@media(max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

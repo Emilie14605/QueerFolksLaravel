@@ -4,17 +4,21 @@
 }
 
 .users {
-    background-color: #edd;
-    border: 1px solid #ccc;
-    border-radius: 1px;
+    background-color: hsla(200, 64%, 62%, 0.504);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     margin-bottom: 2%;
-    margin-top: 1%;
     padding: 1%;
     width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
 }
-.users img{
-    width: 200px;
-    height: auto;
-    overflow: hidden;
-    border: 2px solid black;
+
+.answer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-notif {
+    display: inline-block;
 }

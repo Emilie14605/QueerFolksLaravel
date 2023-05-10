@@ -8,6 +8,7 @@
 <section class="container">
 
     <h1>Nouveau blog</h1>
+    
     <form action="{{ route('blog.add') }}" method="post" name="blogs-form" id="blogs-form" enctype="multipart/form-data">
         @method('POST')
         @csrf

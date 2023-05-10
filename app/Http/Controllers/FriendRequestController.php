@@ -11,9 +11,9 @@ class FriendRequestController extends Controller
     // On envoie une demande d'ami dans la table friend_requests avec comme status par défaut "en attente"
     public function send(Request $request)
     {
-        $sender_id = $request->input('sender_id');
+        $sender_id = Auth::id();
         $receiver_id = $request->input('receiver_id');
-        $status = $request->input('status');
+        $status = "en attente";
 
         $friend_request = new FriendRequest();
         $friend_request->sender_id = $sender_id;

@@ -1,0 +1,88 @@
+/* Partie publications */
+.container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 200px);
+    place-items: center;
+}
+
+.container a {
+    background: #4CAF50;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+.publications {
+    background-color: hsla(200, 64%, 62%, 0.504);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 3px;
+    margin-bottom: 2%;
+    padding: 1%;
+    width: 50%;
+}
+
+.publications a {
+    background: #4CAF50;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+/* Page publication ajout */
+
+#publication-form{
+    background-color: hsla(200, 64%, 62%, 0.504);
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 5%;
+    width: fit-content;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#publication-form select, input, textarea{
+    background: #f2f2f2;
+    border: 0;
+    box-sizing: border-box;
+    margin: 0 0 15px;
+    padding: 15px;
+}
+
+#publication-form button {
+    text-transform: uppercase;
+    background: #4CAF50;
+    color: #FFFFFF;
+    padding: 15px;
+    border: 0;
+    cursor: pointer;
+}
+
+#publication-form button:hover,.form button:active,.form button:focus {
+    background: #43A047;
+}
+
+/* Page publication détails */
+
+.publication-detail{
+    background-color: hsla(200, 64%, 62%, 0.504);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 3px;
+    margin-bottom: 2%;
+    padding: 1%;
+    width: 50%;
+}
+
+.publication-detail img {
+    height: auto;
+    max-width: 100%
+}
+
+.publication-detail i {
+    float: right;
+}
