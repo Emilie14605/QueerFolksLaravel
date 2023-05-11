@@ -5,8 +5,10 @@ header {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
-    background: hsl(122, 39%, 59%);
+    /* background: radial-gradient(circle, rgba(138,222,229,1) 0%, rgba(110,191,112,1) 100%); */
+    background: hsl(121, 39%, 59%);
     /* background-color: #71cdf4; */
+    margin-bottom: 40px;
     height: 100px;
 }
 
@@ -35,7 +37,7 @@ header {
 /* Partie Body */
 
 body {
-    background: hsla(185, 64%, 72%, 0.506);
+    background: #8adee581;
     font-family: sans-serif;
 }
 
@@ -130,6 +132,7 @@ footer {
     justify-items: center;
     align-items: center;
     background: hsl(122, 39%, 59%);
+    margin-top: 100px;
     height: 100px;
 }
 

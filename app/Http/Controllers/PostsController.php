@@ -48,7 +48,7 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'max:50'],
-            'content' => ['required', 'string', 'max:255'],
+            'content' => ['required', 'string', 'max:1020'],
             'picture' => ['required', 'image', 'max:16384']
         ]);
 

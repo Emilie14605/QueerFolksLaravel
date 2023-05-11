@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 20);
             $table->string('author');
-            $table->string('content', 250)->default('');
+            $table->string('content', 1020)->default('');
             $table->string('picture', 250)->default('');
             $table->unsignedBigInteger('post_user_id');
             $table->foreign('post_user_id')->references('id')->on('users')->onDelete('cascade');

@@ -6,6 +6,8 @@
 
 <section class="container">
 
+    <h1>Publications</h1>
+
     @if(Auth::user()->isAdmin)
         <a href="{{ route('publications.form') }}">Faire une nouvelle publication</a>
     @endif

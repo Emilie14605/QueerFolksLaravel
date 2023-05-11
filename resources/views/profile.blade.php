@@ -13,7 +13,9 @@
     </div>
 
     <div class="profile-informations">
-        <a href="{{ route('profile.edit', ['id' => Auth::user()->id]) }}">Configurer le profil</a>
+        @if(Auth::id() == $user->id)
+            <a href="{{ route('profile.edit', ['id' => Auth::user()->id]) }}">Configurer le profil</a>
+        @endif
 
         <h3>Sexualité :</h3>
         <p>{{ $user->sexualorientation }}</p>
@@ -32,16 +34,16 @@
                     @method('DELETE')
                     @csrf
                     <input type="hidden" name="receiver_id" value="{{ $user->id }}">
-                    <button type="submit" name="submit">Supprimer l'ami.e</button>
+                    <button type="submit" name="submit" id="btn-delete">Supprimer l'ami.e</button>
                 </form>
                 <br>
-                <a href="{{ route('messages') }}">Accéder aux messages</a>
+                <!-- <a href="{{ route('messages', ['id' => $user->id]) }}">Accéder aux messages</a> -->
             @elseif($status->contains('refusée'))
                 <br>
-                <button type="button">Demande refusée</button>
+                <button type="button" id="btn-reject">Demande refusée</button>
             @elseif($status->contains('en attente'))
                 <br>
-                <button type="button">Demande en attente</button>
+                <button type="button" id="btn-waiting">Demande en attente</button>
             @else
                 <form action="{{ route('friendrequest.send') }}" method="post">
                     @method('POST') 
@@ -74,7 +76,10 @@
                     </div>
                     <div class="blog-content">
                         <img src="{{ asset('images/blogs/'. Auth::user()->id . '/' . $blog->picture) }}" alt="">
-                        <p>{{ $blog->content }}</p>
+                        <details>
+                            <summary>Lire {{ $blog->title }}</summary>
+                            <p>{{ $blog->content }}</p>
+                        </details>
                     </div>
                 </div>
             @endforeach

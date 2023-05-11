@@ -27,8 +27,12 @@ h1 {
 }
 
 .profile-picture {
+  background: radial-gradient(circle, rgba(138,222,229,1) 0%, rgba(110,191,112,1) 100%);
+  /* background: radial-gradient(circle, rgba(110,191,112,1) 0%, rgba(138,222,229,1) 100%); */
+  /* background: linear-gradient(to bottom, hsl(0, 100%, 50%), hsl(30, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%)); */
   /* background-color: hsla(210, 80%, 50%, 0.8); */
   width: 100%;
+  height: 350px;
   display: grid;
   place-items: center;
 }
@@ -56,6 +60,12 @@ h1 {
   font-size: 14px;
 }
 
+
+.profile-social {
+  display: grid;
+  place-items: center;
+}
+
 .profile-social a {
   background: #4CAF50;
   color: #FFFFFF;
@@ -74,9 +84,37 @@ h1 {
   cursor: pointer;
 }
 
+#btn-waiting {
+  background: orange;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+#btn-reject {
+  background: red;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+#btn-delete {
+  background: red;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px;
+  border: 0;
+  cursor: pointer;
+}
 
 .profile-blogs {
   max-width: 400px;
+  display: grid;
+  place-items: center;
 }
 
 .profile-blogs a {
@@ -93,6 +131,19 @@ h1 {
   max-width: 300px;
   margin-bottom: 20px;
 }
+
+.blog {
+  margin-bottom: 50px;
+}
+
+.blog-content details {
+  width: 300px;
+}
+
+.blog-content details p {
+  word-wrap: break-word;
+}
+
 /* Partie Responsive */
 
 @media (max-width: 768px) {
