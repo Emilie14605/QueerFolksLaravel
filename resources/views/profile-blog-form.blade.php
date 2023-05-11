@@ -9,15 +9,12 @@
 
     <h1>Nouveau blog</h1>
     
-    <form action="{{ route('blog.add') }}" method="post" name="blogs-form" id="blogs-form" enctype="multipart/form-data">
+    <form action="{{ route('blog.add') }}" method="post" id="blogs_form" enctype="multipart/form-data">
         @method('POST')
         @csrf
-        <label for="title">Titre</label>
-        <input type="text" name="title" id="title">
-        <label for="picture">Photo</label>
+        <input type="text" name="title" id="title" placeholder="Titre">
         <input type="file" name="picture" id="picture">
-        <label for="content">Contenu</label>
-        <textarea name="content" id="content"></textarea>
+        <textarea name="content" id="content" placeholder="Contenu du blog"></textarea>
         <button type="submit" name="submit">Publier</button>
     </form>
 

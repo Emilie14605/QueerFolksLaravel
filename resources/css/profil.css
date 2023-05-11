@@ -1,36 +1,62 @@
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
-  grid-template-areas: 
-      "profile information"
+  place-items: center;
+  grid-template-areas:
+      "profile profile"
       "description description"
+      "social social"
+      "information information"
       "blogs blogs";
   gap: 20px;
 }
 
+.profile-picture {grid-area: profile;}
+
+.profile-informations {grid-area: information;}
+
+.profile-social{grid-area: social;}
+
+.profile-description {grid-area: description;}
+
+.profile-blogs {grid-area: blogs;}
+
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
 .profile-picture {
-  grid-area: profile;
-}
-
-.informations {
-  grid-area: information;
-}
-
-.description {grid-area: description;}
-
-.blogs {
-  grid-area: blogs;
+  /* background-color: hsla(210, 80%, 50%, 0.8); */
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .profile-picture img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.informations a {
+.profile-informations {
+  margin: auto;
+  text-align: center;
+}
+
+.profile-informations a {
+  background: #4CAF50;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+}
+
+.profile-social a {
   background: #4CAF50;
   color: #FFFFFF;
   text-decoration: none;
@@ -38,39 +64,38 @@
   border: 0;
   cursor: pointer;
 }
-.blogs img {
+
+.profile-social button {
+  background: #4CAF50;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+
+.profile-blogs {
+  max-width: 400px;
+}
+
+.profile-blogs a {
+  background: #4CAF50;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.profile-blogs img {
   height: auto;
-  max-width: 200px;
+  max-width: 300px;
   margin-bottom: 20px;
 }
-
-/* h1 {
-  text-align: center;
-}
-.container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  justify-items: center;
-  align-items: center;
-}
-
-.profile-picture img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.blog-content img {
-  height: auto;
-  max-width: 200px;
-  margin-bottom: 20px;
-} */
-
-
 /* Partie Responsive */
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr 2fr;
   }

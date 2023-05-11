@@ -35,9 +35,7 @@ header {
 /* Partie Body */
 
 body {
-    /* background: hsl(180, 40%, 60%); */
     background: hsla(185, 64%, 72%, 0.506);
-    /* background: hsla(140, 64%, 72%, 0.504); */
     font-family: sans-serif;
 }
 
@@ -56,7 +54,6 @@ body {
 
 #menu ul {
     background: hsl(122, 39%, 59%);
-    /* background-color: #71cdf4; */
     margin: 20px auto;
     padding: 20px;
     border: 1px solid black;
@@ -86,13 +83,11 @@ body {
     text-transform: uppercase;
     text-align: center;
     padding: 16px 10px;
-    /* transition: all 1s ease-out; Ne fonctionne pas */
     overflow: hidden;
 }
 
 .popup-content {
     background: hsl(122, 39%, 59%);
-    /* background-color: #71cdf4; */
     margin: 20px auto;
     padding: 20px;
     border: 1px solid black;
@@ -135,7 +130,6 @@ footer {
     justify-items: center;
     align-items: center;
     background: hsl(122, 39%, 59%);
-    /* background-color: #71cdf4; */
     height: 100px;
 }
 
@@ -197,8 +191,7 @@ footer ul li {
         justify-items: center;
         align-items: center;
         background: hsl(122, 39%, 59%);
-        /* background-color: #71cdf4; */
-        height: 100px;
+        height: 200px;
     }
 
     footer ul li a {
@@ -210,5 +203,6 @@ footer ul li {
     footer ul li {
         display: block;
         list-style-type: none;
+        margin-bottom: 32px;
     }
 }

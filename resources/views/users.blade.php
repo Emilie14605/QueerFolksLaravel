@@ -16,7 +16,7 @@
             <br>
         </div>
     @endforeach
-
+    
 </section>
 
 <div class="links">

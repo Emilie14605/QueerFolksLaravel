@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\FriendRequest;
 
 class ProfileController extends Controller
 {
@@ -21,9 +22,19 @@ class ProfileController extends Controller
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
             $user = User::find($id);
+            $status = FriendRequest::where(function ($query) use ($user) {
+                $query->where('sender_id', Auth::id())
+                      ->where('receiver_id', $user->id);
+            })
+            ->orWhere(function ($query) use ($user) {
+                $query->where('receiver_id', Auth::id())
+                      ->where('sender_id', $user->id);
+            })
+            ->pluck('status');
+
             $romanticOrientation = str_replace('_', '-', $user->romanticorientation);
             $blogs = Blogs::where('post_user_id', $user->id)->get();
-            return view('profile')->with('user', $user)->with('romanticOrientation', $romanticOrientation)->with('blogs', $blogs);
+            return view('profile')->with('user', $user)->with('romanticOrientation', $romanticOrientation)->with('blogs', $blogs)->with('status', $status);
         }
     }
 
