@@ -22,3 +22,9 @@
 .form-notif {
     display: inline-block;
 }
+
+@media(max-width:768px){
+    .users {
+        width: 90%;
+    }
+}

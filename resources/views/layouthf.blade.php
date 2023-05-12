@@ -13,7 +13,16 @@
 <body>
     <header>
         <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone" id="burger">
+        <a href="{{ route('index') }}" class="liens">Accueil</a>
+        @if(Auth::check())
+            <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}" class="liens">Profil</a>
+        @endif
+        <a href="{{ route('publications') }}" class="liens">Publications</a>
+        <a href="{{ route('messages') }}" class="liens">Messages</a>
         <a href="{{ route('index') }}"><img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone" id="logo"></a>
+        <a href="{{ route('utlisateurs') }}" class="liens">Page des profils</a>
+        <a href="{{ route('notif') }}" class="liens">Demandes d'amies</a>
+        <a href="{{ route('contact') }}" class="liens">Me contacter</a>
         <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone" id="compte">
     </header>
 

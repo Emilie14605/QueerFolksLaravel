@@ -2,17 +2,23 @@
 
 header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     justify-items: center;
     align-items: center;
     /* background: radial-gradient(circle, rgba(138,222,229,1) 0%, rgba(110,191,112,1) 100%); */
     background: hsl(121, 39%, 59%);
     /* background-color: #71cdf4; */
-    margin-bottom: 40px;
-    height: 100px;
+    height: 125px;
+}
+
+.liens {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 #burger {
+    display: none;
     height: auto;
     max-width: 30px;
     cursor: pointer;
@@ -22,7 +28,7 @@ header {
     margin-top: 10px;
     margin-bottom: 10px;
     height: auto;
-    max-width: 50px;
+    max-width: 150px;
     cursor: pointer;
 }
 
@@ -90,7 +96,7 @@ body {
 
 .popup-content {
     background: hsl(122, 39%, 59%);
-    margin: 20px auto;
+    /* margin: 20px auto; */
     padding: 20px;
     border: 1px solid black;
     border-radius: 5px;
@@ -151,6 +157,24 @@ footer ul li {
 /* Partie Responsive */
 
 @media(max-width: 768px) {
+    header {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items: center;
+        background: hsl(121, 39%, 59%);
+        height: 125px;
+        margin-bottom: 2px;
+    }
+
+    #burger {
+        display: block;
+    }
+
+    .liens {
+        display: none;
+    }
+
     #menu li {
         list-style-type: none;
         margin-right: 10px;
@@ -167,7 +191,6 @@ footer ul li {
         text-align: center;
         display: flex;
         flex-direction: column;
-
     }
 
     .popup-content {
@@ -193,6 +216,7 @@ footer ul li {
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
         align-items: center;
+        margin-top: 20px;
         background: hsl(122, 39%, 59%);
         height: 200px;
     }

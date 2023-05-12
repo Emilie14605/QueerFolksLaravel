@@ -4,13 +4,15 @@
 @vite(['resources/css/style.css', 'resources/js/app.js'])
 @vite(['resources/css/profil.css'])
 
-<h1>{{ $user->surname }}</h1>
 
 <section class="container">
 
     <div class="profile-picture">
         <img src="{{ asset('images/' . $user->id . '/' . $user->picture) }}" alt="photo de profil">
     </div>
+
+    <h1>{{ $user->surname }}</h1>
+
 
     <div class="profile-informations">
         @if(Auth::id() == $user->id)
@@ -34,10 +36,10 @@
                     @method('DELETE')
                     @csrf
                     <input type="hidden" name="receiver_id" value="{{ $user->id }}">
-                    <button type="submit" name="submit" id="btn-delete">Supprimer l'ami.e</button>
+                    <button type="submit" name="submit" id="btn-delete">Retirer l'ami.e</button>
                 </form>
                 <br>
-                <!-- <a href="{{ route('messages', ['id' => $user->id]) }}">Accéder aux messages</a> -->
+                <a href="{{ route('messages.details', ['id' => $user->id]) }}">Envoyer un message</a>
             @elseif($status->contains('refusée'))
                 <br>
                 <button type="button" id="btn-reject">Demande refusée</button>
@@ -49,7 +51,7 @@
                     @method('POST') 
                     @csrf
                     <input type="hidden" name="receiver_id" value="{{ $user->id }}">
-                    <button type="submit" name="submit">Ajouter en ami.e</button>
+                    <button type="submit" name="submit" id="btn-ajout">Ajouter en ami.e</button>
                 </form>
                 <br>
             @endif

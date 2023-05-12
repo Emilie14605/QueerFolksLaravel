@@ -17,7 +17,8 @@
 }
 
 .publications {
-    background-color: hsla(200, 64%, 62%, 0.504);
+    /* background-color: hsla(200, 64%, 62%, 0.504); */
+    background: #FFFFFF;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 3px;
     margin-bottom: 2%;
@@ -71,7 +72,8 @@
 /* Page publication détails */
 
 .publication-detail{
-    background-color: hsla(200, 64%, 62%, 0.504);
+    /* background-color: hsla(200, 64%, 62%, 0.504); */
+    background: #FFFFFF;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 3px;
     margin-bottom: 2%;
@@ -86,4 +88,16 @@
 
 .publication-detail i {
     float: right;
+}
+
+@media(max-width: 768px){
+    .publications {
+        height: 150px;
+        width: 90%;
+        margin-bottom: 50px;
+    }
+
+    .publication-detail {
+        width: 90%;
+    }
 }

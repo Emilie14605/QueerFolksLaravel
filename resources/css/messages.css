@@ -37,7 +37,8 @@ select, textarea{
 }
 
 .messages{
-    background-color: hsla(200, 64%, 62%, 0.504);
+    /* background-color: hsla(200, 64%, 62%, 0.504); */
+    background: #FFFFFF;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     margin-bottom: 2%;
     padding: 1%;
@@ -65,4 +66,16 @@ select, textarea{
 
 .messages a:hover {
     background: #43A047;
+}
+
+@media(max-width:768px){
+    .messages {
+        height: 80px;
+        width: 90%;
+        margin-bottom: 50px;
+    }
+    
+    .container h2 {
+        font-size: 21px;
+    }
 }
