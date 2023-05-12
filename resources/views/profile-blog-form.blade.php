@@ -8,6 +8,12 @@
 <section class="container">
 
     <h1>Nouveau blog</h1>
+
+    @if (session('success'))
+    <div class="alert alert-info" style="color: #4CAF50">
+        {{ session('success') }}
+    </div>
+    @endif
     
     <form action="{{ route('blog.add') }}" method="post" id="blogs_form" enctype="multipart/form-data">
         @method('POST')

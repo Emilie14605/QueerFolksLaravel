@@ -49,8 +49,10 @@ class MessagesController extends Controller
         if (Auth::guest()) {
             return redirect()->route('login')->with('status', 'Vous devez vous connecter pour accéder à cette page');
         } else {
-            $users = User::whereIn('id', $id)->select('id', 'surname')->get();
-            return view('messages')->with('users', $users);
+            $user = User::where('id', $id)->first();
+            $surname = $user->surname;
+            $user_id = $user->id;
+            return view('messages-user')->with('user_id', $user_id)->with('surname', $surname);
         }
     }
 

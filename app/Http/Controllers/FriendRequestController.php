@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\FriendRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class FriendRequestController extends Controller
 {
@@ -47,13 +49,28 @@ class FriendRequestController extends Controller
         return redirect('notifications');
     }
 
+    public function remove(Request $request)
+    {
+        $sender_id = Auth::id();
+        $receiver_id = $request->input('receiver_id');
+        $status = "refusée";
+
+        $friend_request = new FriendRequest();
+        $friend_request->sender_id = $sender_id;
+        $friend_request->receiver_id = $receiver_id;
+        $friend_request->status = $status;
+        $friend_request->save();
+
+        return redirect()->back()->with('success', "L'ami.e à été retiré.e");
+    }
+    
+
     // Fonction pour refuser et supprimer la demande d'ami.e
     public function delete($id)
     {
-        
         $del = FriendRequest::findOrFail($id);
         $del->delete();
         
-        return redirect('notifications');
+        return back()->with('success', 'Ami.e retiré');
     }
 }

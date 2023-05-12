@@ -8,6 +8,12 @@
 
     <h1>Envoyer un message</h1>
 
+    @if (session('success'))
+    <div class="alert alert-info" style="color: #4CAF50">
+        {{ session('success') }}
+    </div>
+    @endif
+
     <div class="form">
         <form action="{{ route('messages.ajout') }}" method="POST" name="messages-form">
             @method('POST')

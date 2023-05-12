@@ -13,17 +13,24 @@
 <body>
     <header>
         <img src="{{ asset('images/menu-burger.svg') }}" alt="menu burger" class="icone" id="burger">
-        <a href="{{ route('index') }}" class="liens">Accueil</a>
-        @if(Auth::check())
-            <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}" class="liens">Profil</a>
-        @endif
-        <a href="{{ route('publications') }}" class="liens">Publications</a>
-        <a href="{{ route('messages') }}" class="liens">Messages</a>
+        <nav class="liens">
+            <a href="{{ route('index') }}">Accueil</a>
+            @if(Auth::check())
+                <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a>
+            @endif
+            <a href="{{ route('publications') }}">Publications</a>
+            <a href="{{ route('messages') }}">Messages</a>
+        </nav>
         <a href="{{ route('index') }}"><img src="{{ asset('images/logo.svg') }}" alt="Logo" class="icone" id="logo"></a>
-        <a href="{{ route('utlisateurs') }}" class="liens">Page des profils</a>
-        <a href="{{ route('notif') }}" class="liens">Demandes d'amies</a>
-        <a href="{{ route('contact') }}" class="liens">Me contacter</a>
-        <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone" id="compte">
+        <nav class="liens">
+            <a href="{{ route('utlisateurs') }}">Les profils</a>
+            <a href="{{ route('notif') }}">Demandes d'amies</a>
+            <a href="{{ route('contact') }}">Me contacter</a>
+            <div class="user-info">
+                <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone" id="compte">
+                Profil
+            </div>
+        </nav>
     </header>
 
     <nav class="menu-nav" id="menu">
@@ -43,7 +50,6 @@
     @if(Auth::guest())
     <div id="popup" class="popup">
         <ul class="popup-content">
-            <span class="close">&times;</span>
             <li><a href="{{ route('register') }}">S'inscrire</a></li>
             <li><a href="{{ route('login') }}">Se connecter</a></li>
         </ul>
@@ -53,12 +59,9 @@
     @if(Auth::check())
     <div id="popup" class="popup">
         <ul class="popup-content">
-            <span class="close">&times;</span>
             <li><a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a></li>
             <li><a href="{{ route('profile.edit') }}">Paramètres</a></li>
-            <li>
-                <a href="{{ route('logout') }}">Se déconnecter</a>
-            </li>
+            <li><a href="{{ route('logout') }}">Se déconnecter</a></li>
         </ul>
     </div>
     @endif

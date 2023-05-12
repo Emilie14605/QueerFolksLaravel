@@ -2,7 +2,7 @@
 
 header {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: 10fr 1fr 10fr;
     justify-items: center;
     align-items: center;
     /* background: radial-gradient(circle, rgba(138,222,229,1) 0%, rgba(110,191,112,1) 100%); */
@@ -12,9 +12,33 @@ header {
 }
 
 .liens {
+    display: grid;
+    grid-auto-flow: column;
+    place-content: center;
+    place-items: center;
     text-transform: uppercase;
-    text-decoration: none;
     color: #FFFFFF;
+    gap: 40px;
+}
+
+.liens a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.user-info {
+    border: 2px solid #edd;
+    border-radius: 3px;
+    padding: 0.25em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    place-content: center;
+    grid-auto-flow: column;
+}
+
+.user-info img {
+    fill: #edd;
 }
 
 #burger {
@@ -96,9 +120,8 @@ body {
 
 .popup-content {
     background: hsl(122, 39%, 59%);
-    /* margin: 20px auto; */
     padding: 20px;
-    border: 1px solid black;
+    border: 0;
     border-radius: 5px;
     text-align: center;
 }
@@ -216,7 +239,7 @@ footer ul li {
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 20  px;
         background: hsl(122, 39%, 59%);
         height: 200px;
     }

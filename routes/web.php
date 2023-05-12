@@ -56,6 +56,8 @@ Route::post('profile-blog-form-add', [BlogsController::class, 'store'])->name('b
 
 // Partie demande d'ami
 Route::post('/friend-request', [FriendRequestController::class, 'send'])->name('friendrequest.send');
+Route::post('/friend-request', [FriendRequestController::class, 'remove'])->name('friendrequest.remove');
+
 
 // Partie upload d'images
 Route::get('/image-upload', [ImageUploadController::class, 'index'])->name('image.form');
@@ -66,18 +68,18 @@ Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
 Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messages.ajout');
 Route::get('/messagesdetails/{id}', [MessagesController::class, 'details'])->name('messages.details');
 Route::get('/messagessent', [MessagesController::class, 'sent'])->name('messages.sent');
+Route::get('messages-user/{id}', [MessagesController::class, 'user'])->name('messages.user');
 
 // Partie Notifications
 Route::get('/notifications', [NotifyController::class, 'show'])->name('notif');
 Route::post('/notifications/{id}', [FriendRequestController::class, 'reject'])->name('notif.reject');
 Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name('notif.add');
 
-// Partie Blog
+// Partie Posts
 Route::get('/publications', [PostsController::class, 'index'])->name('publications');
 Route::get('/publications-details/{id}', [PostsController::class, 'details'])->name('publications.details');
 Route::get('/publications-ajout', [PostsController::class, 'form'])->name('publications.form');
 Route::post('/publications-add', [PostsController::class, 'store'])->name('publications.add');
-Route::delete('/publications/{id}', [PostsController::class, 'delete']);
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');

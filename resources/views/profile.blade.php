@@ -32,14 +32,19 @@
     <div class="profile-social">
         @if(Auth::id() != $user->id)
             @if($status->contains('acceptée'))
-                <form action="{{ route('friendrequest.send') }}" method="post">
-                    @method('DELETE')
+                @if (session('success'))
+                    <div class="alert alert-info" style="color: #4CAF50">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <form action="{{ route('friendrequest.remove') }}" method="post">
+                    @method('POST')
                     @csrf
                     <input type="hidden" name="receiver_id" value="{{ $user->id }}">
                     <button type="submit" name="submit" id="btn-delete">Retirer l'ami.e</button>
                 </form>
                 <br>
-                <a href="{{ route('messages.details', ['id' => $user->id]) }}">Envoyer un message</a>
+                <a href="{{ route('messages.user', ['id' => $user->id]) }}">Envoyer un message</a>
             @elseif($status->contains('refusée'))
                 <br>
                 <button type="button" id="btn-reject">Demande refusée</button>
@@ -47,6 +52,11 @@
                 <br>
                 <button type="button" id="btn-waiting">Demande en attente</button>
             @else
+                @if (session('success'))
+                    <div class="alert alert-info" style="color: #4CAF50">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <form action="{{ route('friendrequest.send') }}" method="post">
                     @method('POST') 
                     @csrf
