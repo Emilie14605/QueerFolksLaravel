@@ -32,9 +32,11 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 Route::get('/', function () {return view('index');});
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,11 +44,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
+
 
 // Routes pour accéder aux différentes pages
 Route::get('/home', [HomeController::class, 'index'])->name('index');
 Route::get('/apropos', [AproposController::class, 'index'])->name('apropos');
+
 
 // Partie Profil
 Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.show');
@@ -56,12 +61,14 @@ Route::post('profile-blog-form-add', [BlogsController::class, 'store'])->name('b
 
 // Partie demande d'ami
 Route::post('/friend-request', [FriendRequestController::class, 'send'])->name('friendrequest.send');
-Route::post('/friend-request', [FriendRequestController::class, 'remove'])->name('friendrequest.remove');
+Route::delete('/friend-request/{id}', [FriendRequestController::class, 'remove'])->name('friendrequest.remove');
+
 
 
 // Partie upload d'images
 Route::get('/image-upload', [ImageUploadController::class, 'index'])->name('image.form');
 Route::post('/upload-image', [ImageUploadController::class, 'store'])->name('image.store');
+
 
 // Partie Messages
 Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
@@ -70,10 +77,12 @@ Route::get('/messagesdetails/{id}', [MessagesController::class, 'details'])->nam
 Route::get('/messagessent', [MessagesController::class, 'sent'])->name('messages.sent');
 Route::get('messages-user/{id}', [MessagesController::class, 'user'])->name('messages.user');
 
+
 // Partie Notifications
 Route::get('/notifications', [NotifyController::class, 'show'])->name('notif');
 Route::post('/notifications/{id}', [FriendRequestController::class, 'reject'])->name('notif.reject');
 Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name('notif.add');
+
 
 // Partie Posts
 Route::get('/publications', [PostsController::class, 'index'])->name('publications');
@@ -81,8 +90,10 @@ Route::get('/publications-details/{id}', [PostsController::class, 'details'])->n
 Route::get('/publications-ajout', [PostsController::class, 'form'])->name('publications.form');
 Route::post('/publications-add', [PostsController::class, 'store'])->name('publications.add');
 
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
+
 
 Route::get('/users', [SearchController::class, 'index'])->name('utlisateurs');
 Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');

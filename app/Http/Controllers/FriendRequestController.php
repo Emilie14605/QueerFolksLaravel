@@ -26,7 +26,7 @@ class FriendRequestController extends Controller
         return redirect()->back()->with('success', "La demande d'ami.e a été envoyée");
     }
 
-    // Fonction pour accepter la demadne d'ami.e
+    // Fonction pour accepter la demande d'ami.e
     public function add(Request $request, $id)
     {
         $status = $request->input('status');
@@ -45,32 +45,33 @@ class FriendRequestController extends Controller
         $friend_request = FriendRequest::findOrFail($id);
         $friend_request->status = $status;
         $friend_request->save();
-        
+
         return redirect('notifications');
     }
 
-    public function remove(Request $request)
+    public function remove($id)
     {
-        $sender_id = Auth::id();
-        $receiver_id = $request->input('receiver_id');
-        $status = "refusée";
-
-        $friend_request = new FriendRequest();
-        $friend_request->sender_id = $sender_id;
-        $friend_request->receiver_id = $receiver_id;
-        $friend_request->status = $status;
-        $friend_request->save();
-
-        return redirect()->back()->with('success', "L'ami.e à été retiré.e");
+        if (Auth::guest()) {
+            return redirect()->route('login')->with('status', "Vous devez vous connecter pour accéder à cette page");
+        } else {
+            $friendRequest = FriendRequest::where(function ($query) use ($id) {
+                $query->where('sender_id', Auth::id())
+                    ->where('receiver_id', $id);
+            })->orWhere(function ($query) use ($id) {
+                $query->where('sender_id', $id)
+                    ->where('receiver_id', Auth::id());
+            })->first();
+    
+            if (!$friendRequest) {
+                return redirect()->route('profile.show', $id)->with('status', "La demande d'ami.e n'a pas été trouvée");
+            }
+    
+            // Supprimer la demande d'amitié
+            $friendRequest->delete();
+    
+            // Redirection avec un message de succès
+            return back()->with('success', "La demande d'ami.e a été retirée avec succès");
+        }
     }
     
-
-    // Fonction pour refuser et supprimer la demande d'ami.e
-    public function delete($id)
-    {
-        $del = FriendRequest::findOrFail($id);
-        $del->delete();
-        
-        return back()->with('success', 'Ami.e retiré');
-    }
 }

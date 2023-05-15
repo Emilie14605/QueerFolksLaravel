@@ -26,5 +26,4 @@ class NotifyController extends Controller
             return view('notifications', ['notifs' => $notifs, 'senders' => $senders]);
         }
     }
-
 }

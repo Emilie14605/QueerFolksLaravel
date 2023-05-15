@@ -31,17 +31,17 @@
 
     <div class="profile-social">
         @if(Auth::id() != $user->id)
+
             @if($status->contains('acceptée'))
                 @if (session('success'))
                     <div class="alert alert-info" style="color: #4CAF50">
                         {{ session('success') }}
                     </div>
                 @endif
-                <form action="{{ route('friendrequest.remove') }}" method="post">
-                    @method('POST')
+                <form action="{{ route('friendrequest.remove', ['id' => $user->id]) }}" method="post" id="form-delete">
+                    @method('DELETE')
                     @csrf
-                    <input type="hidden" name="receiver_id" value="{{ $user->id }}">
-                    <button type="submit" name="submit" id="btn-delete">Retirer l'ami.e</button>
+                    <button type="button" id="btn_del">Retirer l'ami.e</button>
                 </form>
                 <br>
                 <a href="{{ route('messages.user', ['id' => $user->id]) }}">Envoyer un message</a>

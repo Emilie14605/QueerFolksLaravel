@@ -32,3 +32,14 @@ compte.addEventListener('click', function () {
         menupopup.style.display = "none";
     }
 });
+
+
+// Partie pour confirmer le retrait d'un ami de la liste d'ami.es 
+const btn = document.getElementById('btn_del');
+
+btn.addEventListener('click', function () {
+    const confirmation = confirm("Etes vous sur de vouloir retirer l'ami.e ?")
+    if(confirmation) {
+        document.getElementById('form-delete').submit();
+    }
+})
