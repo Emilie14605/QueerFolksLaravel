@@ -52,7 +52,7 @@ class MessagesController extends Controller
             $user = User::where('id', $id)->first();
             $surname = $user->surname;
             $user_id = $user->id;
-            return view('messages-user')->with('user_id', $user_id)->with('surname', $surname);
+            return view('messages/messages-user')->with('user_id', $user_id)->with('surname', $surname);
         }
     }
 
@@ -67,7 +67,7 @@ class MessagesController extends Controller
         $receiverId = $msgsent->pluck('messages_receiver_id');
         $receivers = User::whereIn('id', $receiverId)->get();
 
-        return view('messages-sent')->with('messages', $msgsent)->with('receivers', $receivers)->with('users', $users);
+        return view('messages/messages-sent')->with('messages', $msgsent)->with('receivers', $receivers)->with('users', $users);
     }
 
     public function details($id)
@@ -79,7 +79,7 @@ class MessagesController extends Controller
             $sender = User::findOrFail($message->messages_sender_id);
             $receiver = User::findOrFail($message->messages_receiver_id);
 
-            return view('messages-details')->with('message', $message)->with('sender', $sender)->with('receiver', $receiver);
+            return view('messages/messages-details')->with('message', $message)->with('sender', $sender)->with('receiver', $receiver);
         }
     }
 

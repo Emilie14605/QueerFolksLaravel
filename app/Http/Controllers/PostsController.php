@@ -40,7 +40,7 @@ class PostsController extends Controller
         } else {
             $post = Posts::findOrFail($id);
             $dateCreation = date('d-m-Y', strtotime($post->created_at));
-            return view('publications-details')->with('post', $post)->with('date', $dateCreation);
+            return view('publications/publications-details')->with('post', $post)->with('date', $dateCreation);
         }
     }
 

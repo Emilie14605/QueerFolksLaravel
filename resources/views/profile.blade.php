@@ -1,4 +1,4 @@
-@extends('layouthf')
+@extends('layouts.layouthf')
 
 @section('content')
 @vite(['resources/css/style.css', 'resources/js/app.js', 'resources/js/script.js'])
@@ -11,10 +11,13 @@
         <img src="{{ asset('images/' . $user->id . '/' . $user->picture) }}" alt="photo de profil">
     </div>
 
+
     <h1>{{ $user->surname }}</h1>
 
 
     <div class="profile-informations">
+    <a href="{{ route('test', ['surname' => $user->surname]) }}">lien</a>
+
         @if(Auth::id() == $user->id)
             <a href="{{ route('profile.edit', ['id' => Auth::user()->id]) }}">Configurer le profil</a>
         @endif

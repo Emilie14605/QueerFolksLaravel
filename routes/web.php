@@ -1,22 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogsController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\NotifyController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\AproposController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessagesController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ParametersController;
-use App\Http\Controllers\ImageUploadController;
-use App\Http\Controllers\PublicationsController;
 use App\Http\Controllers\FriendRequestController;
+use App\Http\Controllers\OsefController;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /*
@@ -33,11 +25,6 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 Route::get('/', function () {return view('index');});
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -45,12 +32,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::get('osef/{surname}', [OsefController::class, 'test'])->name('test');
+
+
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 
 // Routes pour accéder aux différentes pages
-Route::get('/home', [HomeController::class, 'index'])->name('index');
-Route::get('/apropos', [AproposController::class, 'index'])->name('apropos');
+Route::get('/home', function () {return view('index');})->name('index');
+Route::get('/apropos', function () {return view('apropos');})->name('apropos');
 
 
 // Partie Profil
@@ -64,18 +54,12 @@ Route::post('/friend-request', [FriendRequestController::class, 'send'])->name('
 Route::delete('/friend-request/{id}', [FriendRequestController::class, 'remove'])->name('friendrequest.remove');
 
 
-
-// Partie upload d'images
-Route::get('/image-upload', [ImageUploadController::class, 'index'])->name('image.form');
-Route::post('/upload-image', [ImageUploadController::class, 'store'])->name('image.store');
-
-
 // Partie Messages
 Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
 Route::post('/messages/ajout', [MessagesController::class, 'add'])->name('messages.ajout');
-Route::get('/messagesdetails/{id}', [MessagesController::class, 'details'])->name('messages.details');
-Route::get('/messagessent', [MessagesController::class, 'sent'])->name('messages.sent');
-Route::get('messages-user/{id}', [MessagesController::class, 'user'])->name('messages.user');
+Route::get('/messages/details/{id}', [MessagesController::class, 'details'])->name('messages.details');
+Route::get('/messages/envoyés', [MessagesController::class, 'sent'])->name('messages.sent');
+Route::get('messages/{id}', [MessagesController::class, 'user'])->name('messages.user');
 
 
 // Partie Notifications
@@ -86,17 +70,15 @@ Route::put('/notifications/{id}', [FriendRequestController::class, 'add'])->name
 
 // Partie Posts
 Route::get('/publications', [PostsController::class, 'index'])->name('publications');
-Route::get('/publications-details/{id}', [PostsController::class, 'details'])->name('publications.details');
+Route::get('/publications/{id}', [PostsController::class, 'details'])->name('publications.details');
 Route::get('/publications-ajout', [PostsController::class, 'form'])->name('publications.form');
 Route::post('/publications-add', [PostsController::class, 'store'])->name('publications.add');
 
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/login', [LoginController::class, 'seeLogin'])->name('login');
 
+Route::get('/contact', function () {return view('contact');})->name('contact');
 
-Route::get('/users', [SearchController::class, 'index'])->name('utlisateurs');
-Route::get('/register', [RegisterController::class, 'seeRegister'])->name('register');
+Route::get('/profils', [SearchController::class, 'index'])->name('utlisateurs');
 
 
 require __DIR__.'/auth.php';
