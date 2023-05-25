@@ -38,9 +38,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('osef/{surname}', [OsefController::class, 'test'])->name('test');
-
-
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 

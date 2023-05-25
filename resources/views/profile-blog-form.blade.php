@@ -20,7 +20,7 @@
         @csrf
         <input type="text" name="title" id="title" placeholder="Titre">
         <input type="file" name="picture" id="picture">
-        <textarea name="content" id="content" placeholder="Contenu du blog"></textarea>
+        <textarea name="content" id="content" placeholder="Contenu du blog" cols="75" rows="5"></textarea>
         <button type="submit" name="submit">Publier</button>
     </form>
 

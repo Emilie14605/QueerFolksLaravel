@@ -16,10 +16,7 @@
             <h2 class="text-lg font-medium text-gray-900">
                 {{ __('Etes vous sure de vouloir supprimer votre compte ?') }}
             </h2>
-
-            <p class="mt-1 text-sm text-gray-600">
-                {{ __('Etes vous sure de vouloir supprimer votre compte ?') }}
-            </p>
+            
 
             <div class="mt-6">
                 <x-input-label for="password" value="{{ __('Mot de passe') }}" class="sr-only" />

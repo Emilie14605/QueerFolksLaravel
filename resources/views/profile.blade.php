@@ -16,7 +16,6 @@
 
 
     <div class="profile-informations">
-    <a href="{{ route('test', ['surname' => $user->surname]) }}">lien</a>
 
         @if(Auth::id() == $user->id)
             <a href="{{ route('profile.edit', ['id' => Auth::user()->id]) }}">Configurer le profil</a>

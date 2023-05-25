@@ -35,7 +35,8 @@
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-#blogs_form, select, textarea, input{
+#blogs_form select, input, textarea {
+    background: #f2f2f2;
     border: 0;
     box-sizing: border-box;
     margin: 0 0 15px;
