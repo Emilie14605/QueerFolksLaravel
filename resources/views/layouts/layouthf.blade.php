@@ -42,7 +42,7 @@
             @endif
             <li><a href="{{ route('publications') }}">Publications</a></li>
             <li><a href="{{ route('messages') }}">Messages</a></li>
-            <li><a href="{{ route('utlisateurs') }}">Page des profils</a></li>
+            <li><a href="{{ route('utlisateurs') }}">Les profils</a></li>
             <li><a href="{{ route('notif') }}">Demandes d'amies</a></li>
             <li><a href="{{ route('profile.edit') }}">Paramètres</a></li>
             <li><a href="{{ route('contact') }}">Me contacter</a></li>

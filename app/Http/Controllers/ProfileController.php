@@ -54,6 +54,24 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function image(Request $request)
+    {
+        $request->validate([
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+
+        $request->image->move(public_path('images'), $imageName);
+
+        $user = Auth::user();
+        $user->picture = $imageName;
+        $user->save();
+        
+
+        return back()->with('success',"L'image a été enregistrée")->whith('image', $imageName);
+    }
+
     /**
      * Update the user's profile information.
      */
