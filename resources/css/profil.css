@@ -30,6 +30,7 @@ h1 {
 }
 
 .profile-picture {
+  position: relative;
   background: radial-gradient(circle, rgba(138,222,229,1) 0%, rgba(110,191,112,0.40) 100%);
   /* background: radial-gradient(circle, rgba(110,191,112,1) 0%, rgba(138,222,229,1) 100%); */
   /* background: linear-gradient(to bottom, hsl(0, 100%, 50%), hsl(30, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%)); */
