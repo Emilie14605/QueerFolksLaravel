@@ -1,9 +1,13 @@
-.container{
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
     display: grid;
     place-items: center;
 }
 
-form{
+form {
     background-color: hsla(200, 64%, 62%, 0.504);
     display: grid;
     grid-template-columns: 1fr;
@@ -23,11 +27,14 @@ form button {
     cursor: pointer;
 }
 
-.form button:hover,.form button:active,.form button:focus {
+.form button:hover,
+.form button:active,
+.form button:focus {
     background: #43A047;
-  }
+}
 
-select, textarea{
+select,
+textarea {
     background: #f2f2f2;
     border: 0;
     box-sizing: border-box;
@@ -35,7 +42,7 @@ select, textarea{
     padding: 15px;
 }
 
-.messages{
+.messages {
     /* background-color: hsla(200, 64%, 62%, 0.504); */
     background: #FFFFFF;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -67,13 +74,13 @@ select, textarea{
     background: #43A047;
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
     .messages {
         height: 80px;
         width: 90%;
         margin-bottom: 50px;
     }
-    
+
     .container h2 {
         font-size: 21px;
     }
