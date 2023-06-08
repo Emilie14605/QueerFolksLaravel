@@ -1,4 +1,8 @@
-.container{
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
     display: grid;
     place-items: center;
 }
@@ -23,7 +27,7 @@
     display: inline-block;
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
     .users {
         width: 90%;
     }

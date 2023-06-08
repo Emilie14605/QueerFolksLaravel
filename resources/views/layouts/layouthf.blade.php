@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="icon" href="{{ asset('images/logo.svg') }}"
+    <link rel="icon" href="{{ asset('images/logo.svg') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Lato&display=swap" rel="stylesheet">
     <base href="http://localhost/folks/index.php">
     <title>Queer&Folks</title>
 </head>
@@ -27,10 +30,11 @@
             <a href="{{ route('utlisateurs') }}">Les profils</a>
             <a href="{{ route('notif') }}">Demandes d'amies</a>
             <a href="{{ route('contact') }}">Me contacter</a>
-            <div class="user-info">
+            <span class="user-info">
                 <img src="{{ asset('images/user.svg') }}" alt="Compte" class="icone" id="compte">
                 Profil
-            </div>
+            </span>
+
         </nav>
     </header>
 

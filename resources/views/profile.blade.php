@@ -86,7 +86,7 @@
                 <div class="blog">
                     <div class="blog-header">
                         <h2>{{ $blog->title }}</h2>
-                        <i>{{ $blog->created_at }}</i>
+                        <span>{{ $blog->created_at }}</span>
                     </div>
                     <div class="blog-content">
                         <img src="{{ asset('images/blogs/'. Auth::user()->id . '/' . $blog->picture) }}" alt="">

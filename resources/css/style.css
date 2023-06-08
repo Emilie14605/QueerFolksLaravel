@@ -78,7 +78,6 @@ body {
     text-transform: uppercase;
     text-align: center;
     padding: 16px 10px;
-    /* transition: all 1s ease-out; Ne fonctionne pas */
     overflow: hidden;
 }
 
@@ -109,6 +108,7 @@ body {
 .popup {
     display: none;
     position: relative;
+    z-index: 2;
     border-radius: 0;
     text-transform: uppercase;
     text-align: center;
