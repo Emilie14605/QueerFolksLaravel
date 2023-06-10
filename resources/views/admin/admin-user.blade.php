@@ -1,7 +1,7 @@
 @extends('layouts.layouthf')
 
 @section('content')
-@vite(['resources/css/style.css', 'resources/js/app.js'])
+@vite(['resources/css/style.css', 'resources/css/admin-user.css', 'resources/js/app.js'])
 
 <section class="container">
     <h1>Menu des utilisateurs</h1>

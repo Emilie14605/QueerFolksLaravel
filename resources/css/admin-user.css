@@ -1,5 +1,42 @@
 /* Partie user */
 
+h1 {
+    text-align: center;
+}
+
+.container-content {
+    display: grid;
+    place-content: center;
+    grid-template-columns: 500px 100px;
+    gap: 20px;
+    background-color: hsla(200, 64%, 62%, 0.504);
+    padding: 8px;
+}
+
+.container-content-options {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 100px 1fr;
+}
+
+.container-content-options button {
+    background-color: red;
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 18px;
+}
+
+.container-content-options a {
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #43A047;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+}
+
 /* Partie user-update */
 .container-update {
     display: grid;
