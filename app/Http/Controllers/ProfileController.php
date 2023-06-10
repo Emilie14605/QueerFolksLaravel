@@ -60,16 +60,16 @@ class ProfileController extends Controller
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = time().'.'.$request->image->extension();
+        $imageName = time().'.'.$request->picture->extension();
 
-        $request->image->move(public_path('images'), $imageName);
+        $request->picture->move(public_path('images'), $imageName);
 
         $user = Auth::user();
         $user->picture = $imageName;
         $user->save();
         
 
-        return back()->with('success',"L'image a été enregistrée")->whith('image', $imageName);
+        return back()->with('success',"L'image a été enregistrée");
     }
 
     /**

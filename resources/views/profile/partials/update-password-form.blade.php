@@ -1,4 +1,4 @@
-<section>
+<section style="font-family: 'Lato', sans-serif">
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Chnagez de mot de passe') }}

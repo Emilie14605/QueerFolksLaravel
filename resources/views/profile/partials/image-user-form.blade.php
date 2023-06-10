@@ -1,4 +1,4 @@
-<section>
+<section style="font-family: 'Lato', sans-serif">
 
     <header>
         <h2 class="text-lg font-medium text-gray-900">
@@ -17,9 +17,9 @@
     <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
-            <x-input-label for="image" :value="__('')" />
-            <x-text-input id="image" name="image" type="file" capture="gallery" class="mt-1 block w-full" :value="old('image')" autofocus autocomplete="image" />
-            <x-input-error class="mt-2" :messages="$errors->get('image')" />
+            <x-input-label for="picture" :value="__('')" />
+            <x-text-input id="picture" name="picture" type="file" capture="gallery" class="mt-1 block w-full" :value="old('picture')" autofocus autocomplete="picture" />
+            <x-input-error class="mt-2" :messages="$errors->get('picture')" />
         </div>
 
         <div class="flex items-center gap-4">

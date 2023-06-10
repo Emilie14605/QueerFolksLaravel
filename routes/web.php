@@ -9,8 +9,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\FriendRequestController;
 use App\Http\Controllers\ImageUploadController;
-use App\Http\Controllers\OsefController;
-use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +48,7 @@ Route::get('/apropos', function () {return view('apropos');})->name('apropos');
 Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.show');
 Route::get('profile-blog-form', [BlogsController::class, 'form'])->name('profile.blog');
 Route::post('profile-blog-form-add', [BlogsController::class, 'store'])->name('blog.add');
-Route::post('profile-image-form-add', [ImageUploadController::class, 'store'])->name('image.store');
+Route::post('profile-image-form-add', [ProfileController::class, 'image'])->name('image.store');
 
 
 // Partie demande d'ami
