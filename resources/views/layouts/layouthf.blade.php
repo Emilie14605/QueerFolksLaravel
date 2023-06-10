@@ -66,6 +66,7 @@
     <div id="popup" class="popup">
         <ul class="popup-content">
             <li><a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a></li>
+            <li><a href="{{ route('admin.show') }}">Menu Administrateur</a></li>
             <li><a href="{{ route('profile.edit') }}">Paramètres</a></li>
             <li><a href="{{ route('logout') }}">Se déconnecter</a></li>
         </ul>

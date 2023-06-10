@@ -166,6 +166,7 @@ footer {
 footer ul li a {
     text-decoration: none;
     text-align: center;
+    font-size: 18px;
     color: #FFFFFF;
     margin: 0 50px;
 }

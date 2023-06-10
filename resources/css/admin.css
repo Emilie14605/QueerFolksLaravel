@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    grid-template-rows: 200px 1fr 370px;
+}
+
+.container-bottom a {
+    background-color: hsl(121, 39%, 59%);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 15px 20px;
+}

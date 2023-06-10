@@ -1,0 +1,44 @@
+/* Partie posts */
+
+/* Partie update post */
+
+.container-post {
+    display: grid;
+    place-content: center;
+}
+
+#publication-form {
+    background-color: hsla(200, 64%, 62%, 0.504);
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 5%;
+    width: fit-content;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#publication-form select,
+input,
+textarea {
+    background: #f2f2f2;
+    border: 0;
+    box-sizing: border-box;
+    margin: 0 0 15px;
+    padding: 15px;
+}
+
+#publication-form button {
+    text-transform: uppercase;
+    background: #4CAF50;
+    color: #FFFFFF;
+    padding: 15px;
+    border: 0;
+    cursor: pointer;
+}
+
+#publication-form button:hover,
+.form button:active,
+.form button:focus {
+    background: #43A047;
+}

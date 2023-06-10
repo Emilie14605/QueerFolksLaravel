@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title', 20);
             $table->string('author');
             $table->string('content', 250)->default('');
+            $table->string('picture', 250)->default('');
             $table->unsignedBigInteger('post_user_id');
             $table->foreign('post_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

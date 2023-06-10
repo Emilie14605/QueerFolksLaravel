@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\PostsController;
@@ -40,6 +41,15 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/logout', [ProfileController::class, 'logout'])->name('logout');
 
+// Route pour l'administrateur
+Route::get('/admin/dashboard-admin', [AdminController::class, 'index'])->name('admin.show');
+Route::get('admin/dashboard-admin/publications', [AdminController::class, 'posts'])->name('admin.posts');
+Route::get('admin/dashboard-admin/publications-update/{id}', [AdminController::class, 'showPostUpdate'])->name('admin.postupdate');
+Route::put('admin/dashboard-admin/publications-update/{id}', [AdminController::class, 'postUpdate'])->name('admin.postSaveUpdate');
+Route::delete('admin/dashboard-admin/posts/{id}',[AdminController::class, 'postsDelete'])->name('admin.postsdel');
+Route::get('admin/dashboard-admin/utilisateurs', [AdminController::class, 'user'])->name('admin.user');
+Route::get('admin/dashboard-admin/utilisateurs-update/{id}',[AdminController::class, 'showUpdate'])->name('admin.userupdate');
+Route::delete('admin/dashboard-admin/utilisateurs/{id}',[AdminController::class, 'userDelete'])->name('admin.userdel');
 
 // Routes pour accéder aux différentes pages
 Route::get('/home', function () {return view('index');})->name('index');
