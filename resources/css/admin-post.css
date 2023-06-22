@@ -2,15 +2,34 @@
 
 h1 {
     text-align: center;
+    margin: 50px;
+}
+
+.container {
+    display: grid;
+    place-items: center;
 }
 
 .container-content {
     display: grid;
     place-content: center;
-    grid-template-columns: 500px 100px;
+    grid-template-columns: 500px 200px;
+    gap: 20px;
     background-color: hsla(200, 64%, 62%, 0.504);
-    padding: 8px;
+    padding: 32px;
 }
+
+.container-content-post p {
+    font-weight: bold;
+}
+
+.bar:after {
+    display:  block;
+    content: "______________________________";
+    letter-spacing: -3px;
+    line-height: 0;    
+}
+
 
 .container-content-options {
     display: grid;
@@ -21,7 +40,6 @@ h1 {
 .container-content-options button {
     background-color: red;
     border: none;
-    border-radius: 15px;
     color: #ffffff;
     padding: 18px;
 }
@@ -33,7 +51,6 @@ h1 {
     background-color: #43A047;
     padding-top: 18px;
     padding-bottom: 10px;
-    border-radius: 15px;
 }
 
 /* Partie update post */
@@ -77,4 +94,33 @@ textarea {
 .form button:active,
 .form button:focus {
     background: #43A047;
+}
+
+@media(max-width: 768px) {
+    .container-content {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 250px;
+        gap: 20px;
+        background-color: hsla(200, 64%, 62%, 0.504);
+        padding: 8px;
+        text-align: center;
+    }
+    
+    .container-content-post p {
+        color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .bar:before {
+        display:  block;
+        content: "______________________________";
+        color: #f2f2f2;
+        letter-spacing: -3px;
+        line-height: 0;    
+    }
+    
+    .bar:after {
+        display: none;
+    }
 }

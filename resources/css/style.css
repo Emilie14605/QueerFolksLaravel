@@ -67,6 +67,7 @@ header {
 body {
     background: rgba(138, 222, 229, 0.506);
     font-family: sans-serif;
+    margin: 0;
 }
 
 /* Partie menu icone burger */
@@ -181,7 +182,7 @@ footer ul li {
 @media(max-width: 768px) {
     header {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         justify-items: center;
         align-items: center;
         background: hsl(121, 39%, 59%);
@@ -238,9 +239,10 @@ footer ul li {
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
         align-items: center;
-        margin-top: 20  px;
-        background: hsl(122, 39%, 59%);
+        margin-top: 20px;
         height: 200px;
+        background: hsl(122, 39%, 59%);
+        padding: 12px;
     }
 
     footer ul li a {

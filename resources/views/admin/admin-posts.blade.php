@@ -8,7 +8,8 @@
 
     <div class="container-content">
         @foreach($posts as $post)
-            <div class="container-content-post">
+        <!-- <div class="container-content-whole"> -->
+            <div class="container-content-post bar">
                 <p>{{$post->title}}</p>
             </div>
             <div class="container-content-options">
@@ -19,6 +20,7 @@
                     <button type="submit" class="btn">Supprimer</button>
                 </form>
             </div>
+        <!-- </div> -->
         @endforeach
     </div>
 

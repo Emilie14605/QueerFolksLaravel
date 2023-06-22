@@ -7,7 +7,7 @@
     <h1>Menu des utilisateurs</h1>
     <div class="container-content">
         @foreach($users as $user)
-            <div class="container-content-user">
+            <div class="container-content-user bar">
                 <p>{{$user->surname}}</p>
             </div>
             <div class="container-content-options">

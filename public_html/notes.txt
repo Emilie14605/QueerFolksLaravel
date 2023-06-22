@@ -1,0 +1,10 @@
+responsive du menu - Fait
+popup des liens du cv - Fait
+formulaire php pour le contact
+légendes des images - Fait
+
+mettre les alt dans le head de l'image sous photoshop et les lire avec exif - Fait
+effacer l'image de la popup quand une nouvelle se charge - Fait
+
+informations ouvre le cv - Fait
+gallerie affiche les images - Fait

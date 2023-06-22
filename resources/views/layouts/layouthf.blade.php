@@ -44,6 +44,7 @@
             @if(Auth::check())
             <li><a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profil</a></li>
             @endif
+            <li><a href="{{ route('admin.show') }}">Menu Administrateur</a></li>
             <li><a href="{{ route('publications') }}">Publications</a></li>
             <li><a href="{{ route('messages') }}">Messages</a></li>
             <li><a href="{{ route('utlisateurs') }}">Les profils</a></li>
