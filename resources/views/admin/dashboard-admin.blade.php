@@ -6,7 +6,7 @@
 <section class="container">
     <div class="container-top">
         <h1>Menu administrateur</h1>
-        <p>Ci-dessous vous pouvez administrer les publication et les utilisateurs</p>
+        <p>Ci-dessous vous pouvez administrer les publications et les utilisateurs</p>
     </div>
     <div class="container-bottom">
         <a href="{{ route('admin.posts') }}">Publications</a>

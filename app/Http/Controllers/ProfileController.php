@@ -79,15 +79,15 @@ class ProfileController extends Controller
     {
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'firstname' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:20'],
-            'age' => ['required', 'numeric', 'min:18'],
-            'description' => ['required', 'string', 'max:255'],
-            'gender' => ['required', Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
-            'sexualorientation' => ['required', Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
-            'romanticorientation' => ['required', Rule::in(['Homoromantique', 'Biromantique', 'Panromantique', 'Demi_romantique', 'Aromantique', 'Heteroromantique'])],
-            'lookingfor' => ['required', Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
+            'name' => ['string', 'max:255'],
+            'firstname' => ['string', 'max:255'],
+            'surname' => ['string', 'max:20'],
+            'age' => ['numeric', 'min:18'],
+            'description' => ['string', 'max:255'],
+            'gender' => [Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
+            'sexualorientation' => [Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
+            'romanticorientation' => [Rule::in(['Homoromantique', 'Biromantique', 'Panromantique', 'Demi_romantique', 'Aromantique', 'Heteroromantique'])],
+            'lookingfor' => [Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
         ]);
 
         $user = Auth::user();

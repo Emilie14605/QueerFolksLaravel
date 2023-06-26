@@ -55,15 +55,15 @@ class AdminController extends Controller
 
     public function userUpdate(ProfileUpdateRequest $request, $id) {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'firstname' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:20'],
-            'age' => ['required', 'numeric', 'min:18'],
-            'description' => ['required', 'string', 'max:255'],
-            'gender' => ['required', Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
-            'sexualorientation' => ['required', Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
-            'romanticorientation' => ['required', Rule::in(['Homoromantique', 'Biromantique', 'Panromantique', 'Demi_romantique', 'Aromantique', 'Heteroromantique'])],
-            'lookingfor' => ['required', Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
+            'name' => ['string', 'max:255'],
+            'firstname' => ['string', 'max:255'],
+            'surname' => ['string', 'max:20'],
+            'age' => ['numeric', 'min:18'],
+            'description' => ['string', 'max:255'],
+            'gender' => [Rule::in(['Homme Cisgenre', 'Femme Cisgenre', 'Homme Transgenre', 'Femme Transgenre', 'Genderfluid', 'Genderqueer', 'Agenre'])],
+            'sexualorientation' => [Rule::in(['Homosexuelle', 'Bisexuelle', 'Pansexuelle', 'Demi-sexuelle', 'Asexuelle', 'Heterosexuelle'])],
+            'romanticorientation' => [Rule::in(['Homoromantique', 'Biromantique', 'Panromantique', 'Demi_romantique', 'Aromantique', 'Heteroromantique'])],
+            'lookingfor' => [Rule::in(['Relation Amicale', 'Relation Romantique', 'Relation Sexuelle'])],
         ]);
 
         $user = User::find($id);
@@ -131,9 +131,9 @@ class AdminController extends Controller
 
     public function postUpdate(Request $request, $id) {
         $request->validate([
-            'title' => ['required', 'string', 'max:50'],
-            'content' => ['required', 'string', 'max:1020'],
-            'picture' => ['required', 'image', 'max:16384']
+            'title' => ['string', 'max:50'],
+            'content' => ['string', 'max:1020'],
+            'picture' => ['image', 'max:16384']
         ]);
         
         $post = Posts::find($id);
@@ -155,6 +155,7 @@ class AdminController extends Controller
             $post->picture = $request->picture;
         };
 
+        $post->updated_at = now();
         $post->save();
 
         return back();

@@ -89,7 +89,7 @@
                         <span>{{ $blog->created_at }}</span>
                     </div>
                     <div class="blog-content">
-                        <img src="{{ asset('images/blogs/'. Auth::user()->id . '/' . $blog->picture) }}" alt="">
+                        <img src="{{ asset('images/blogs/'. $user->id . '/' . $blog->picture) }}" alt="">
                         <details>
                             <summary>Lire {{ $blog->title }}</summary>
                             <p>{{ $blog->content }}</p>

@@ -24,6 +24,10 @@ header {
     text-decoration: none;
 }
 
+.liens a:hover {
+    font-weight: bold;
+}
+
 .user-info {
     border: 2px solid #edd;
     border-radius: 3px;
@@ -162,6 +166,7 @@ footer {
     background: hsl(122, 39%, 59%);
     margin-top: 100px;
     height: 100px;
+    width: 100%;
 }
 
 footer ul li a {
@@ -170,6 +175,10 @@ footer ul li a {
     font-size: 18px;
     color: #FFFFFF;
     margin: 0 50px;
+}
+
+footer ul li a:hover {
+    font-weight: bold;
 }
 
 footer ul li {
@@ -243,6 +252,9 @@ footer ul li {
         height: 200px;
         background: hsl(122, 39%, 59%);
         padding: 12px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
     }
 
     footer ul li a {
