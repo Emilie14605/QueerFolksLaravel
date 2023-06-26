@@ -7,6 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+Pour lancer le projet :
+
+- pull la branche remote
+- lancer laragon
+- créer une base de données avec un nom
+- aller dans le fichier .env pour changer le DB_DATABASE avec le now que vous avez choisi pour votre base de données
+- dans un terminal taper cette commande : php artisan migrate
+- ensuite taper php artisan serve
+- dans un nouvel onglet tapez npm run dev
+- dans un nouvel onglet taper npm run build
+- rendez vous à l'adresse 127.0.0.1:8000
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
